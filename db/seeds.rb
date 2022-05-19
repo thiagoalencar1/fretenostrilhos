@@ -33,3 +33,6 @@ Carrier.create!(
   status: 'active'
 )
 
+Vehicle.create!(
+  model: 'Kia Bongo', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '2'
+)

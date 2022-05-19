@@ -1,0 +1,17 @@
+<table>
+  <tr>
+    <th>Modelo</th>
+    <th>Marca</th>
+    <th>Ano</th>
+    <th>Placa</th>
+  </tr>
+  <% @vehicles.each do |v| %>
+    <tr>
+      <td><%= v.model %></td>
+      <td><%= v.year %></td>
+      <td><%= v.brand %></td>
+      <td><%= v.license_plate %></td>
+      <td><%= v.carrier.brand_name %>
+    </tr>
+  <% end  %>
+</table>
