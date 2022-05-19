@@ -17,9 +17,7 @@ describe 'Usuário vê Veívulo' do
       taxpayer_number: '09812345678901', status: 'active'
     )
 
-    Vehicle.create!(
-      model: 'Kia Bongo', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '1'
-    )
+    Vehicle.create!(model: 'Kia Bongo', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '1')
 
     login_as(user)
     visit root_path

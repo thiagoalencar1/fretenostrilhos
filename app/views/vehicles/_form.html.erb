@@ -1,0 +1,31 @@
+<%= form_with model: @vehicle do |v| %>
+  <div>
+    <%= v.label :model, 'Modelo' %>
+    <%= v.text_field :model %>
+  </div>
+  
+  <div>
+    <%= v.label :brand, 'Marca' %>
+    <%= v.text_field :brand %>
+  </div>
+
+  <div>
+    <%= v.label :year, 'Ano'%>
+    <%= v.number_field :year %>
+  </div>
+
+  <div>
+    <%= v.label :license_plate, 'Placa' %>
+    <%= v.text_field :license_plate %>
+  </div>
+
+  <div>
+    <%= v.label :carrier_id, 'Transportadora' %>
+    <%= v.number_field :carrier_id %>
+  </div>
+
+  <div>
+    <%= v.submit 'Enviar' %>
+  </div>
+
+<% end  %>
