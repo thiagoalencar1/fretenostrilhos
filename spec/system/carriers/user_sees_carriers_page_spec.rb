@@ -22,7 +22,7 @@ describe 'Usuário vê transportadoras' do
     click_on 'Transportadoras'
 
     expect(current_path).to eq carriers_path
-    expect(page).to have_content('Cometa')
+    expect(page).to have_content('Entregas Cometa')
   end
 
   it '' do

@@ -1,0 +1,16 @@
+<h1>Transportadoras</h1>
+
+<h2><%= @carrier.brand_name %></h2>
+<dl>
+  <dt>Razão Social </dt>
+  <dd><%= @carrier.corporate_name %></dd>
+
+  <dt>Domínio</dt>
+  <dd><%= @carrier.email_domain %></dd>
+
+  <dt>CNPJ</dt>
+  <dd><%= @carrier.taxpayer_number %></dd>
+  
+  <dt>Status</dt>
+  <dd><%= @carrier.status %></dd>
+</dl>

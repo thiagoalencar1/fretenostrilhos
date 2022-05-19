@@ -1,8 +1,12 @@
 class CarriersController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
+  before_action :authenticate_user!
 
   def index
     @carriers = Carrier.all
+  end
+
+  def show
+    @carrier = Carrier.find(params[:id])
   end
 
   def new
@@ -18,7 +22,7 @@ class CarriersController < ApplicationController
     @carrier.save
 
     if @carrier.save
-      redirect_to carriers_path, notice: 'Transportadora salva com sucesso.'
+      redirect_to @carrier, notice: 'Transportadora salva com sucesso.'
     else
       flash[:alert] = 'Verifique o preenchimento do cadastro.'
       render :new

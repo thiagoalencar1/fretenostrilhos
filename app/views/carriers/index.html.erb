@@ -1,17 +1,12 @@
 <h1>Transportadoras</h1>
+
 <% @carriers.each do |c| %>
-  <h3><%= c.brand_name %></h3>
- <dl>
-    <dt>Razão Social</dt>
-    <dd><%= c.corporate_name %></dd>
-
-    <dt>Domínio de email</dt>
-    <dd><%= c.email_domain %></dd>
-
-    <dt>CNPJ</dt>
-    <dd><%= c.taxpayer_number %></dd>
-    
-    <dt>Status</dt>
-    <dd><%= c.status %></dd>
- </dl>
+  <h3><%= link_to c.brand_name, c %></h3>
+   <dl>
+      <dt>Razão Social</dt>
+      <dd><%= c.corporate_name %></dd>
+      
+      <dt>Status</dt>
+      <dd><%= c.status %></dd>
+   </dl>
 <% end %>
