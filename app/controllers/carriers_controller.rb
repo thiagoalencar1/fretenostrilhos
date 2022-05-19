@@ -28,4 +28,22 @@ class CarriersController < ApplicationController
       render :new
     end
   end
+
+  def edit
+    @carrier = Carrier.find(params[:id])
+  end
+
+  def update
+    @carrier = Carrier.find(params[:id])
+
+    if @carrier.update(params.require(:carrier).permit(:brand_name, :corporate_name,
+                                                       :email_domain, :taxpayer_number, :status))
+
+      flash[:notice] = 'Transportadora atualizada com sucesso.'
+      redirect_to carrier_path
+    else
+      flash[:alert] = 'Atualização não realizada. Verifique o preenchimento do cadastro.'
+      render :edit
+    end
+  end
 end
