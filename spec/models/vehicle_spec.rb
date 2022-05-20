@@ -7,7 +7,7 @@ RSpec.describe Vehicle, type: :model do
         # Arrange
         Carrier.new(
           brand_name: 'Expresso Mercúrio', corporate_name: 'Expresso Mercúrio LTDA',
-          email_domain: '@expressomercurio.com.br', taxpayer_number: '00440695000122',
+          email_domain: 'expressomercurio.com.br', taxpayer_number: '00440695000122',
           status: 'active'
         )
 
@@ -22,7 +22,7 @@ RSpec.describe Vehicle, type: :model do
         # Arrange
         Carrier.new(
           brand_name: 'Expresso Mercúrio', corporate_name: 'Expresso Mercúrio LTDA',
-          email_domain: '@expressomercurio.com.br', taxpayer_number: '00440695000122',
+          email_domain: 'expressomercurio.com.br', taxpayer_number: '00440695000122',
           status: 'active'
         )
 
@@ -37,7 +37,7 @@ RSpec.describe Vehicle, type: :model do
         # Arrange
         Carrier.new(
           brand_name: 'Expresso Mercúrio', corporate_name: 'Expresso Mercúrio LTDA',
-          email_domain: '@expressomercurio.com.br', taxpayer_number: '00440695000122',
+          email_domain: 'expressomercurio.com.br', taxpayer_number: '00440695000122',
           status: 'active'
         )
 
@@ -52,7 +52,7 @@ RSpec.describe Vehicle, type: :model do
         # Arrange
         Carrier.new(
           brand_name: 'Expresso Mercúrio', corporate_name: 'Expresso Mercúrio LTDA',
-          email_domain: '@expressomercurio.com.br', taxpayer_number: '00440695000122',
+          email_domain: 'expressomercurio.com.br', taxpayer_number: '00440695000122',
           status: 'active'
         )
 

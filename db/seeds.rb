@@ -6,27 +6,35 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', password: 'carambolas')
-User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
-
 Carrier.create!(
   brand_name: 'Alfa Transportes', corporate_name: 'Alta Transportes LTDA',
-  email_domain: '@alfatransportes.com.br', taxpayer_number: '38554111000112',
+  email_domain: 'alfatransportes.com.br', taxpayer_number: '38554111000112',
   status: 'active'
 )
 
 Carrier.create!(
   brand_name: 'Beta Transportes', corporate_name: 'Beta Transportes LTDA',
-  email_domain: '@betatransportes.com.br', taxpayer_number: '37846022000187',
+  email_domain: 'betatransportes.com.br', taxpayer_number: '37846022000187',
   status: 'active'
 )
 
 Carrier.create!(
   brand_name: 'Gama Transportes', corporate_name: 'Gama Transportes LTDA',
-  email_domain: '@gamatransportes.com.br', taxpayer_number: '93195868000175',
+  email_domain: 'gamatransportes.com.br', taxpayer_number: '93195868000175',
   status: 'active'
 )
 
+Admin.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', password: 'carambolas')
+User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
+
 Vehicle.create!(
-  model: 'Kia Bongo K2500', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '2'
+  model: 'Kia Bongo K2500', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '1'
+)
+
+Vehicle.create!(
+  model: 'Scania XT', brand: 'Scania', license_plate: 'JPV0I89', year: '2022', carrier_id: '2'
+)
+
+Vehicle.create!(
+  model: 'Scania V8', brand: 'Scania', license_plate: 'LKO9I09', year: '2022', carrier_id: '3'
 )

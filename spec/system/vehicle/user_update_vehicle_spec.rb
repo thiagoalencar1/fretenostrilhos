@@ -3,10 +3,16 @@ require 'rails_helper'
 describe 'Usuário edita cadastro de Transportadora' do
   it 'com sucesso' do
     # Arrange
+    Carrier.create!(
+      brand_name: 'Alfa Transportes', corporate_name: 'Alta Transportes LTDA',
+      email_domain: 'alfatransportes.com.br', taxpayer_number: '38554111000112',
+      status: 'active'
+    )
+
     user = User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
 
     carrier = Carrier.create!(
-      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: '@cometa.com.br',
+      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: 'cometa.com.br',
       taxpayer_number: '09812345678901', status: 'active'
     )
 
@@ -27,10 +33,16 @@ describe 'Usuário edita cadastro de Transportadora' do
 
   it 'sem sucesso' do
     # Arrange
+    Carrier.create!(
+      brand_name: 'Alfa Transportes', corporate_name: 'Alta Transportes LTDA',
+      email_domain: 'alfatransportes.com.br', taxpayer_number: '38554111000112',
+      status: 'active'
+    )
+
     user = User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
 
     carrier = Carrier.create!(
-      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: '@cometa.com.br',
+      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: 'cometa.com.br',
       taxpayer_number: '09812345678901', status: 'active'
     )
 

@@ -10,10 +10,16 @@ describe 'Usuário vê Veívulo' do
   end
 
   it 'com sucesso quando está autenticado' do
-    user = User.create!(name: 'Sérgio', email: 'ex@mple.com', password: '123456')
+    Carrier.create!(
+      brand_name: 'Alfa Transportes', corporate_name: 'Alta Transportes LTDA',
+      email_domain: 'alfatransportes.com.br', taxpayer_number: '38554111000112',
+      status: 'active'
+    )
+
+    user = User.create!(name: 'Sérgio', email: 'sergio@alfatransportes.com.br', password: '123456')
 
     Carrier.create!(
-      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: '@cometa.com.br',
+      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: 'cometa.com.br',
       taxpayer_number: '09812345678901', status: 'active'
     )
 

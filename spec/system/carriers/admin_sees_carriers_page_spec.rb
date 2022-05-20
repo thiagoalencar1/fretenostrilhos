@@ -13,7 +13,7 @@ describe 'Usuário vê transportadoras' do
     admin = Admin.create!(name: 'Sérgio', email: 'ex@mple.com', password: '123456')
 
     Carrier.create!(
-      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: '@cometa.com.br',
+      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: 'cometa.com.br',
       taxpayer_number: '09812345678901', status: 'active'
     )
 

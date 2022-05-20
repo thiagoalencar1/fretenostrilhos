@@ -6,7 +6,7 @@ describe 'Administrador edita cadastro de Transportadora' do
     admin = Admin.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
 
     carrier = Carrier.create!(
-      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: '@cometa.com.br',
+      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: 'cometa.com.br',
       taxpayer_number: '09812345678901', status: 'active'
     )
 
@@ -29,7 +29,7 @@ describe 'Administrador edita cadastro de Transportadora' do
     admin = Admin.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
 
     carrier = Carrier.create!(
-      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: '@cometa.com.br',
+      brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: 'cometa.com.br',
       taxpayer_number: '09812345678901', status: 'active'
     )
 
