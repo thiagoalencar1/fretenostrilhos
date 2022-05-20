@@ -4,6 +4,8 @@
     <th>Marca</th>
     <th>Ano</th>
     <th>Placa</th>
+    <th>Transportadora</th>
+    <th>Ações</th>
   </tr>
   <% @vehicles.each do |v| %>
     <tr>
@@ -11,7 +13,8 @@
       <td><%= v.year %></td>
       <td><%= v.brand %></td>
       <td><%= v.license_plate %></td>
-      <td><%= v.carrier.brand_name %>
+      <td><%= v.carrier.brand_name %></td>
+      <td><%= link_to 'Editar', edit_vehicle_path(v) %>
     </tr>
   <% end  %>
 </table>

@@ -21,6 +21,23 @@ class VehiclesController < ApplicationController
     end
   end
 
+  def edit
+    @vehicle = Vehicle.find(params[:id])
+  end
+
+  def update
+    @vehicle = Vehicle.find(params[:id])
+    vehicle_params
+
+    if @vehicle.update(vehicle_params)
+      flash[:notice] = 'Transportadora atualizada com sucesso.'
+      redirect_to vehicles_path
+    else
+      flash[:alert] = 'Atualização não realizada. Verifique o preenchimento do cadastro.'
+      render :edit
+    end
+  end
+
   private
 
   def vehicle_params
