@@ -15,8 +15,19 @@
       <%= link_to 'Transportadoras', carriers_path %> |
       <%= link_to 'Cadastrar Transportadora', new_carrier_path %> |
       <%= link_to 'Veículos', vehicles_path %> |
-      <%= link_to 'Entrar', new_user_session_path %> | 
-      <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
+
+      <% if user_signed_in? %>
+        <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
+      <% elsif !admin_signed_in? %>
+        <%= link_to 'Entrar', new_user_session_path %> |
+      <% end %>
+
+      <% if admin_signed_in? %>
+        <%= button_to 'Sair', destroy_admin_session_path, method: :delete %>
+      <% elsif !user_signed_in? %>
+        <%= link_to 'Admin', new_admin_session_path %> |
+      <% end %>
+     
     </nav>
     <main>
       <%= yield %>

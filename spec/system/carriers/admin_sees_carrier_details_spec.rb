@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Usuário visualiza detalhes de uma Transportadora' do
   it 'e vê mais informações' do
     # Arrange
-    user = User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
+    admin = Admin.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
 
     carrier = Carrier.create!(
       brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: '@cometa.com.br',
@@ -11,7 +11,7 @@ describe 'Usuário visualiza detalhes de uma Transportadora' do
     )
 
     # Act
-    login_as(user)
+    login_as(admin, scope: :admin)
     visit root_path
     click_on 'Transportadoras'
     click_on 'Entregas Cometa'

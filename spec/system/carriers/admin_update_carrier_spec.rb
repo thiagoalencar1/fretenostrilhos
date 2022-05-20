@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe 'Usuário edita cadastro de Transportadora' do
+describe 'Administrador edita cadastro de Transportadora' do
   it 'com sucesso' do
     # Arrange
-    user = User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
+    admin = Admin.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
 
     carrier = Carrier.create!(
       brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: '@cometa.com.br',
@@ -11,7 +11,7 @@ describe 'Usuário edita cadastro de Transportadora' do
     )
 
     # Act
-    login_as(user)
+    login_as(admin, scope: :admin)
     visit root_path
     click_on 'Transportadoras'
     click_on 'Entregas Cometa'
@@ -26,7 +26,7 @@ describe 'Usuário edita cadastro de Transportadora' do
 
   it 'sem sucesso' do
     # Arrange
-    user = User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
+    admin = Admin.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
 
     carrier = Carrier.create!(
       brand_name: 'Entregas Cometa', corporate_name: 'Viação Cometa LTDA', email_domain: '@cometa.com.br',
@@ -34,7 +34,7 @@ describe 'Usuário edita cadastro de Transportadora' do
     )
 
     # Act
-    login_as(user)
+    login_as(admin, scope: :admin)
     visit root_path
     click_on 'Transportadoras'
     click_on 'Entregas Cometa'

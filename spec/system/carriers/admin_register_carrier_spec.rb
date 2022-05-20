@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe 'Usuário cadastra nova transportadora' do
+describe 'Administrador cadastra nova transportadora' do
   it 'com sucesso' do
-    user = User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
+    admin = Admin.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
 
-    login_as(user)
+    login_as(admin, scope: :admin)
     visit root_path
     click_on('Transportadoras')
     click_on('Cadastrar Transportadora')
@@ -21,9 +21,9 @@ describe 'Usuário cadastra nova transportadora' do
   end
 
   it 'sem sucesso' do
-    user = User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
+    admin = Admin.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
 
-    login_as(user)
+    login_as(admin, scope: :admin)
     visit root_path
     click_on('Transportadoras')
     click_on('Cadastrar Transportadora')

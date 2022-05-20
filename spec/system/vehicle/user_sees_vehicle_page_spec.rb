@@ -19,7 +19,7 @@ describe 'Usuário vê Veívulo' do
 
     Vehicle.create!(model: 'Kia Bongo', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '1')
 
-    login_as(user)
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Veículos'
 

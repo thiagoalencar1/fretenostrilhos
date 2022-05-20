@@ -13,7 +13,7 @@ describe 'Usuário edita cadastro de Transportadora' do
     Vehicle.create!(model: 'Kia Bongo', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '1')
 
     # Act
-    login_as(user)
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Veículo'
     click_on 'Editar'
@@ -37,7 +37,7 @@ describe 'Usuário edita cadastro de Transportadora' do
     vehicle = Vehicle.create!(model: 'Kia Bongo', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '1')
 
     # Act
-    login_as(user)
+    login_as(user, scope: :user)
     visit root_path
     click_on 'Veículo'
     click_on 'Editar'

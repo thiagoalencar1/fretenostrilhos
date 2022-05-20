@@ -9,7 +9,7 @@ describe 'Usuário cadastra novo Veículo' do
       taxpayer_number: '09812345678901', status: 'active'
     )
 
-    login_as(user)
+    login_as(user, scope: :user)
     visit root_path
     click_on('Veículos')
     click_on('Cadastrar Veículo')
@@ -32,7 +32,7 @@ describe 'Usuário cadastra novo Veículo' do
       taxpayer_number: '09812345678901', status: 'active'
     )
 
-    login_as(user)
+    login_as(user, scope: :user)
     visit root_path
     click_on('Veículos')
     click_on('Cadastrar Veículo')

@@ -10,12 +10,6 @@ User.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', pa
 User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
 
 Carrier.create!(
-  brand_name: 'system', corporate_name: 'system',
-  email_domain: '@sistemadefrete.com.br', taxpayer_number: '00000000000000',
-  status: 'active'
-)
-
-Carrier.create!(
   brand_name: 'Alfa Transportes', corporate_name: 'Alta Transportes LTDA',
   email_domain: '@alfatransportes.com.br', taxpayer_number: '38554111000112',
   status: 'active'
@@ -34,5 +28,5 @@ Carrier.create!(
 )
 
 Vehicle.create!(
-  model: 'Kia Bongo', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '2'
+  model: 'Kia Bongo K2500', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '2'
 )
