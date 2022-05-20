@@ -2,7 +2,7 @@ class VehiclesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @vehicles = Vehicle.all
+    @vehicles = Vehicle.where(carrier_id: current_user.carrier_id)
   end
 
   def new

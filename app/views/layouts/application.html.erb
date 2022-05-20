@@ -17,12 +17,14 @@
       <%= link_to 'Veículos', vehicles_path %> |
 
       <% if user_signed_in? %>
+        <%= current_user.email %> |
         <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
       <% elsif !admin_signed_in? %>
         <%= link_to 'Entrar', new_user_session_path %> |
       <% end %>
 
       <% if admin_signed_in? %>
+        <%= current_admin.email %> |
         <%= button_to 'Sair', destroy_admin_session_path, method: :delete %>
       <% elsif !user_signed_in? %>
         <%= link_to 'Admin', new_admin_session_path %> |
