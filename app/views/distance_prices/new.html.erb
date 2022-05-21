@@ -1,0 +1,21 @@
+<%= form_with model: @distance_price do |c| %>
+  <div>
+    <%= c.label :km_price, 'Preço / Km' %>
+    <%= c.text_field :km_price%>
+  </div>
+
+  <div>
+    <%= c.label :carrier_id %>
+    <%= c.text_field :carrier_id%>
+  </div>
+
+  <div>
+    <%= c.label :price_range_id %>
+    <%= c.text_field :price_range_id %>
+  </div>
+  
+  <div>
+    <%= c.submit 'Enviar' %>
+  </div>
+
+<% end  %>

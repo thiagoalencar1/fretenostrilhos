@@ -38,3 +38,33 @@ Vehicle.create!(
 Vehicle.create!(
   model: 'Scania V8', brand: 'Scania', license_plate: 'LKO9I09', year: '2022', carrier_id: '3'
 )
+
+PriceRange.create!(
+  volume_start: '0.001', volume_end: '0.500',
+  weight_start: '0.000', weight_end: '10.000'
+)
+
+PriceRange.create!(
+  volume_start: '0.001', volume_end: '0.500',
+  weight_start: '10.000', weight_end: '30.000'
+)
+
+PriceRange.create!(
+  volume_start: '0.001', volume_end: '0.500',
+  weight_start: '30.000', weight_end: '9999.000'
+)
+
+PriceRange.create!(
+  volume_start: '0.501', volume_end: '1.000',
+  weight_start: '0.000', weight_end: '10.000'
+)
+
+PriceRange.create!(
+  volume_start: '0.501', volume_end: '1.000',
+  weight_start: '10.000', weight_end: '30.000'
+)
+
+PriceRange.create!(
+  volume_start: '0.501', volume_end: '1.000',
+  weight_start: '30.000', weight_end: '9999.000'
+)

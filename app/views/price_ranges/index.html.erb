@@ -1,0 +1,24 @@
+<h1>Tabela de Composição Preços</h1>
+<table border="1">
+  <thead>
+    <tr>
+     <th colspan="2">Volume</th>
+     <th colspan="2">Peso</th>
+    <tr>
+      <th>De</th>
+      <th>Até</th>
+      <th>De</th>
+      <th>Até</th>
+    </tr>
+    </tr>
+  </thead>
+
+  <% @price_ranges.each do |pr| %>
+  <tr>
+    <td><%= number_with_precision(pr.volume_start, precision: 3) %> m³</td>
+    <td><%= number_with_precision(pr.volume_end, precision: 3) %> m³</td>
+    <td><%= number_with_precision(pr.weight_start, precision: 3) %> kg</td>
+    <td><%= number_with_precision(pr.weight_end, precision: 3) %> kg</td>
+  </tr>
+  <% end %>
+</table>

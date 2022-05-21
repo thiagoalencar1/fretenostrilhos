@@ -1,0 +1,56 @@
+<h1>Tabela de Preços de <%= current_user.carrier.brand_name %></h1>
+
+<%= link_to 'Cadastrar Preço', new_distance_price_path %>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th colspan="2">Volume</th>
+      <th colspan="2">Peso</th>
+      <th rowspan="2">Preço por Km</th>
+      <th rowspan="2">Ação</th>
+    </tr>
+    <tr>
+      <th>De</th>
+      <th>Até</th>
+      <th>De</th>
+      <th>Até</th>
+    </tr>
+  </thead>
+
+  <% @distance_prices.each do |dp| %>
+    <tr>
+      <td><%= number_with_precision(dp.price_range.volume_start, precision: 3) %> m³</td>
+      <td><%= number_with_precision(dp.price_range.volume_end, precision: 3) %> m³</td>
+      <td><%= number_with_precision(dp.price_range.weight_start, precision: 3) %> kg</td>
+      <td><%= number_with_precision(dp.price_range.weight_end, precision: 3) %> kg</td>
+      <td>R$ <%= number_with_precision(dp.km_price, precision: 2) %></td>
+      <td>Editar</td>
+    </tr>
+  <% end %>
+</table>
+
+<hr />
+
+<table border="1">
+  <thead>
+    <tr>
+     <th colspan="2">Volume</th>
+     <th colspan="2">Peso</th>
+    <tr>
+      <th>De</th>
+      <th>Até</th>
+      <th>De</th>
+      <th>Até</th>
+    </tr>
+    </tr>
+  </thead>
+
+  <% @price_ranges.each do |pr| %>
+  <tr>
+    <td><%= number_with_precision(pr.volume_start, precision: 3) %> m³</td>
+    <td><%= number_with_precision(pr.volume_end, precision: 3) %> m³</td>
+    <td><%= number_with_precision(pr.weight_start, precision: 3) %> kg</td>
+    <td><%= number_with_precision(pr.weight_end, precision: 3) %> kg</td>
+  </tr>
+  <% end %>
