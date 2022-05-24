@@ -1,10 +1,13 @@
 class DistancePricesController < ApplicationController
   def index
+    @carrier = Carrier.find(current_user.carrier_id)
     @price_ranges = PriceRange.all
     @distance_prices = DistancePrice.where(carrier_id: current_user.carrier_id)
   end
 
   def new
+    @carrier = Carrier.find(current_user.carrier_id)
+    @price_range = PriceRange.find(params[:price_range_id])
     @distance_price = DistancePrice.new
   end
 
