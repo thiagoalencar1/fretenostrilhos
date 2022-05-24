@@ -1,5 +1,6 @@
 class VehiclesController < ApplicationController
   before_action :authenticate_user!
+  before_action :this_carrier
 
   def index
     @vehicles = Vehicle.where(carrier_id: current_user.carrier_id)
@@ -42,5 +43,9 @@ class VehiclesController < ApplicationController
 
   def vehicle_params
     params.require(:vehicle).permit(:model, :brand, :year, :license_plate, :carrier_id)
+  end
+
+  def this_carrier
+    @carrier = Carrier.find(current_user.carrier_id)
   end
 end

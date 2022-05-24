@@ -1,4 +1,8 @@
-<table>
+<h1><%= @carrier.brand_name %> - Veículos Cadastrados</h1>
+
+<%= link_to 'Cadastrar Veículo', new_vehicle_path %>
+
+<table border = "1">
   <tr>
     <th>Modelo</th>
     <th>Marca</th>
@@ -18,4 +22,3 @@
     </tr>
   <% end  %>
 </table>
-<%= link_to 'Cadastrar Veículos', new_vehicle_path %>

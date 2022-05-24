@@ -17,13 +17,13 @@
   </thead>
 <% @price_ranges.each do |price_range|  %>
   <tr>
-    <td><%= price_range.id %></td>
-    <td><%= price_range.volume_start %></td>
-    <td><%= price_range.volume_end %></td>
-    <td><%= price_range.weight_start %></td>
-    <td><%= price_range.weight_end %></td>
+    <td><%= number_with_precision(price_range.id) %></td>
+    <td><%= number_with_precision(price_range.volume_start) %> m³</td>
+    <td><%= number_with_precision(price_range.volume_end) %> m³</td>
+    <td><%= number_with_precision(price_range.weight_start) %> kg</td>
+    <td><%= number_with_precision(price_range.weight_end) %> kg</td>
     <% range_price = @carrier.distance_prices.find_by(price_range_id: price_range.id) %>
-    <td><%= range_price.nil? ? ' ' : range_price.km_price %></td>
+    <td>R$ <%= range_price.nil? ? ' ' : number_with_precision(range_price.km_price, precision: 2) %></td>
     <td>
       <%= range_price.nil? ? (link_to 'Criar', new_distance_price_path(carrier_id: @carrier.id, price_range_id: price_range.id)) : (link_to 'Editar', edit_distance_price_path(range_price.id)) %>
     </td>

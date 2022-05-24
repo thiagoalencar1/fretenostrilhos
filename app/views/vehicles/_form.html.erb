@@ -19,13 +19,12 @@
     <%= v.text_field :license_plate %>
   </div>
 
-  <div>
-    <%= v.label :carrier_id, 'Transportadora' %>
-    <%= v.number_field :carrier_id %>
-  </div>
+  <%= v.hidden_field :carrier_id, value: @carrier.id %>
 
   <div>
     <%= v.submit 'Enviar' %>
   </div>
 
 <% end  %>
+
+<%= link_to 'Voltar', vehicles_path %>

@@ -23,7 +23,6 @@ describe 'Usuário cadastra novo Veículo' do
     fill_in 'Marca', with: 'Volksvagem'
     fill_in 'Ano', with: '2022'
     fill_in 'Placa', with: 'ETY7654'
-    fill_in 'Transportadora', with: '1'
     click_on 'Enviar'
 
     expect(page).to have_content('Trucker 2072')
@@ -52,7 +51,6 @@ describe 'Usuário cadastra novo Veículo' do
     fill_in 'Marca', with: 'Volksvagem'
     fill_in 'Ano', with: '2022'
     fill_in 'Placa', with: 'ETY7654'
-    fill_in 'Transportadora', with: '1'
     click_on 'Enviar'
 
     expect(page).to have_content('Verifique o preenchimento do cadastro')
