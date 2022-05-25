@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_25_014453) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_115631) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -30,6 +30,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_014453) do
     t.string "email_domain"
     t.string "taxpayer_number"
     t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "delivery_distances", force: :cascade do |t|
+    t.integer "from_km"
+    t.integer "to_km"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

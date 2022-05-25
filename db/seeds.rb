@@ -40,8 +40,7 @@ Vehicle.create!(
   model: 'Scania V8', brand: 'Scania', license_plate: 'LKO9I09', year: '2022', carrier_id: '3'
 )
 
-Order.create(order_number: 'XYZ', order_value: '100.20', status: '1', distance: '100', user_id: User.first.id,
-  carrier_id: Carrier.first.id)
+Order.create(order_value: '100.20', status: '1', distance: '100', carrier_id: Carrier.first.id)
 
 # 0.001 - 0.500
 PriceRange.create!(
@@ -131,3 +130,10 @@ DistancePrice.create!(km_price: 1.25, price_range_id: 9, carrier_id: 2)
 # DistancePrice - BetaTransportes - # 1.501 - 2.000
 DistancePrice.create!(km_price: 1.05, price_range_id: 10, carrier_id: 2)
 DistancePrice.create!(km_price: 1.30, price_range_id: 11, carrier_id: 2)
+
+# Delivery Distance Ranges
+DeliveryDistance.create!(from_km: '0', to_km: '100')
+DeliveryDistance.create!(from_km: '101', to_km: '200')
+DeliveryDistance.create!(from_km: '201', to_km: '300')
+DeliveryDistance.create!(from_km: '301', to_km: '400')
+DeliveryDistance.create!(from_km: '401', to_km: '500')

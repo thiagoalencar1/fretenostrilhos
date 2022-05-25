@@ -25,6 +25,7 @@
         <%= link_to 'Transportadoras', carriers_path %> |
         <%= link_to 'Cadastrar Transportadora', new_carrier_path %> |
         <%= link_to 'Intervalo de Preços', price_ranges_path %> |
+        <%= link_to 'Intervalos de Distância', delivery_distances_path %>
         <%= current_admin.email %>
         <%= button_to 'Sair', destroy_admin_session_path, method: :delete %>
       <% elsif !user_signed_in? %>

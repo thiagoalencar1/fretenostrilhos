@@ -1,0 +1,2 @@
+class DeliveryDistance < ApplicationRecord
+end

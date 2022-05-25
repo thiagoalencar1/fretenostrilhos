@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :price_ranges, only: [:index]
   resources :distance_prices, only: %i[index new create edit update]
   resources :orders, only: %i[index new create]
+  resources :delivery_distances, only: [:index]
 end
