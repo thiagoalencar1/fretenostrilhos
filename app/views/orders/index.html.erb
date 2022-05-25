@@ -1,0 +1,7 @@
+<h1>Pedidos</h1>
+<%= link_to 'Novo Pedido', new_order_path %>
+<br />
+<% @orders.each do |o| %>
+  Pedido: <%= o.order_number %><br />
+  Transportadora: <%= o.carrier.brand_name %><br />
+<% end %>

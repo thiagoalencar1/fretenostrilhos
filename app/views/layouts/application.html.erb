@@ -21,6 +21,7 @@
       <% end %>
 
       <% if admin_signed_in? %>
+        <%= link_to 'Pedidos', orders_path %> | 
         <%= link_to 'Transportadoras', carriers_path %> |
         <%= link_to 'Cadastrar Transportadora', new_carrier_path %> |
         <%= link_to 'Intervalo de Preços', price_ranges_path %> |

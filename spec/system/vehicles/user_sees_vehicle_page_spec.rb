@@ -2,10 +2,7 @@ require 'rails_helper'
 
 describe 'Usuário vê Veívulo' do
   it 'sem sucesso quando não está autenticado' do
-    visit root_path
-    within('nav') do
-      click_on 'Veículos'
-    end
+    visit vehicles_path
     expect(current_path).to eq new_user_session_path
   end
 

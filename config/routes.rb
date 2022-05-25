@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :vehicles, only: %i[index new create edit update]
   resources :price_ranges, only: [:index]
   resources :distance_prices, only: %i[index new create edit update]
+  resources :orders, only: %i[index new create]
 end

@@ -2,10 +2,8 @@ require 'rails_helper'
 
 describe 'Usuário vê transportadoras' do
   it 'se estiver autenticado' do
-    visit root_path
-    within('nav') do
-      click_on 'Transportadoras'
-    end
+    # Arrange
+    visit carriers_path
     expect(current_path).to eq new_admin_session_path
   end
 

@@ -40,6 +40,9 @@ Vehicle.create!(
   model: 'Scania V8', brand: 'Scania', license_plate: 'LKO9I09', year: '2022', carrier_id: '3'
 )
 
+Order.create(order_number: 'XYZ', order_value: '100.20', status: '1', distance: '100', user_id: User.first.id,
+  carrier_id: Carrier.first.id)
+
 # 0.001 - 0.500
 PriceRange.create!(
   volume_start: '0.001', volume_end: '0.500',

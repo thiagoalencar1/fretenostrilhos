@@ -1,0 +1,16 @@
+<h1>Novo Pedido</h1>
+ <%= form_with model: @order do |o| %>
+  <div>
+    <%= o.label :distance, 'Distância (km): ' %>
+    <%= o.number_field :distance %>
+  </div>
+
+  <div>
+    <%= o.label :carrier_id, 'Transportadora:' %>
+    <%= o.number_field :carrier_id %>
+  </div>
+
+  <div>
+    <%= o.submit 'Enviar' %>
+  </div>
+ <% end %>
