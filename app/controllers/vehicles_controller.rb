@@ -34,7 +34,7 @@ class VehiclesController < ApplicationController
       flash[:notice] = 'Transportadora atualizada com sucesso.'
       redirect_to vehicles_path
     else
-      flash[:alert] = 'Atualização não realizada. Verifique o preenchimento do cadastro.'
+      flash[:alert] = 'Atualização falhou. Verifique o preenchimento do cadastro.'
       render :edit
     end
   end

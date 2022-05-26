@@ -10,12 +10,4 @@ class Order < ApplicationRecord
   def generate_code
     self.order_number = SecureRandom.alphanumeric(8).upcase
   end
-
-  def measuraments_value; end
-
-  def distance_value; end
-
-  def total_value
-    measuraments_value + distance_value
-  end
 end

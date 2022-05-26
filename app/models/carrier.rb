@@ -2,6 +2,8 @@ class Carrier < ApplicationRecord
   has_many :users
   has_many :distance_prices
   has_many :price_ranges, through: :distance_prices
+  has_many :delivery_times
+  has_many :delivery_distances, through: :delivery_times
 
   enum status: { active: 0, inactive: 3 }
 

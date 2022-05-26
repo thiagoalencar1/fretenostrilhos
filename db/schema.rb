@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_25_115631) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_132505) do
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -39,6 +39,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_115631) do
     t.integer "to_km"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "delivery_times", force: :cascade do |t|
+    t.integer "time"
+    t.integer "carrier_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "delivery_distance_id", null: false
+    t.index ["carrier_id"], name: "index_delivery_times_on_carrier_id"
+    t.index ["delivery_distance_id"], name: "index_delivery_times_on_delivery_distance_id"
   end
 
   create_table "distance_prices", force: :cascade do |t|
@@ -98,6 +108,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_115631) do
     t.index ["carrier_id"], name: "index_vehicles_on_carrier_id"
   end
 
+  add_foreign_key "delivery_times", "carriers"
+  add_foreign_key "delivery_times", "delivery_distances"
   add_foreign_key "distance_prices", "carriers"
   add_foreign_key "distance_prices", "price_ranges"
   add_foreign_key "orders", "carriers"

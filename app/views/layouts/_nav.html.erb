@@ -1,0 +1,25 @@
+
+<nav class= "navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to 'Home', root_path, class: 'navbar-brand' %> |
+  <% if user_signed_in? %>
+    <%= link_to 'Veículos', vehicles_path, class: 'nav-item' %> |
+    <%= link_to 'Tabela de Preços', distance_prices_path, class: 'nav-item' %> |
+    <%= link_to 'Tabela de Distâncias', delivery_times_path,class: 'nav-item' %> |
+    <%= current_user.email %>
+    <%= button_to 'Sair', destroy_user_session_path, method: :delete, class: 'btn btn-outline-success' %>
+  <% elsif !admin_signed_in? %>
+    <%= link_to 'Entrar', new_user_session_path, class: 'nav-item' %> |
+  <% end %>
+
+  <% if admin_signed_in? %>
+    <%= link_to 'Pedidos', orders_path %> | 
+    <%= link_to 'Transportadoras', carriers_path %> |
+    <%= link_to 'Cadastrar Transportadora', new_carrier_path %> |
+    <%= link_to 'Intervalo de Preços', price_ranges_path %> |
+    <%= link_to 'Intervalos de Distância', delivery_distances_path %>
+    <%= current_admin.email %>
+    <%= button_to 'Sair', destroy_admin_session_path, method: :delete %>
+  <% elsif !user_signed_in? %>
+    <%= link_to 'Admin', new_admin_session_path %> |
+  <% end %>
+</nav>

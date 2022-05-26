@@ -1,5 +1,6 @@
 class DistancePricesController < ApplicationController
-  before_action :this_carrier
+  before_action :authenticate_user!
+  before_action :set_carrier
 
   def index
     @price_ranges = PriceRange.all
@@ -42,7 +43,7 @@ class DistancePricesController < ApplicationController
 
   private
 
-  def this_carrier
+  def set_carrier
     @carrier = Carrier.find(current_user.carrier_id)
   end
 end

@@ -1,0 +1,15 @@
+<%= @carrier.brand_name %><br />
+<%= @delivery_distance.show_delivery_distance %>
+<%= form_with model: @delivery_time do |d| %>
+  <div>
+    <%= d.label :time, 'Tempo estimado: ' %>
+    <%= d.number_field :time, in: 1..99 %> dias
+  </div>
+
+  <%= d.hidden_field :carrier_id, value: @carrier.id %>
+  <%= d.hidden_field :delivery_distance_id, value: @delivery_distance.id %>
+
+  <div>
+    <%= d.submit 'Salvar' %>
+  </div>
+<% end %>

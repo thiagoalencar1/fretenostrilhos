@@ -6,35 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application" %>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <body>
     <%= render 'layouts/alerts' %>
-    <nav>
-      <%= link_to 'Home', root_path %> |
-      <% if user_signed_in? %>
-        <%= link_to 'Veículos', vehicles_path %> |
-        <%= link_to 'Tabela de Preços', distance_prices_path %> |
-        <%= current_user.email %>
-        <%= button_to 'Sair', destroy_user_session_path, method: :delete %>
-      <% elsif !admin_signed_in? %>
-        <%= link_to 'Entrar', new_user_session_path %> |
-      <% end %>
-
-      <% if admin_signed_in? %>
-        <%= link_to 'Pedidos', orders_path %> | 
-        <%= link_to 'Transportadoras', carriers_path %> |
-        <%= link_to 'Cadastrar Transportadora', new_carrier_path %> |
-        <%= link_to 'Intervalo de Preços', price_ranges_path %> |
-        <%= link_to 'Intervalos de Distância', delivery_distances_path %>
-        <%= current_admin.email %>
-        <%= button_to 'Sair', destroy_admin_session_path, method: :delete %>
-      <% elsif !user_signed_in? %>
-        <%= link_to 'Admin', new_admin_session_path %> |
-      <% end %>
-     
-    </nav>
-    <main>
-      <%= yield %>
-    </main>
+    <%= render 'layouts/nav' %>
+    <div class="container">
+      <main>
+        <%= yield %>
+      </main> 
   </body>
 </html>
