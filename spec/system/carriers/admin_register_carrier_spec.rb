@@ -7,7 +7,7 @@ describe 'Administrador cadastra nova transportadora' do
     login_as(admin, scope: :admin)
     visit root_path
     click_on('Transportadoras')
-    click_on('Cadastrar Transportadora')
+    click_on('Adicionar Transportadora')
     fill_in 'Nome Fantasia', with: 'Expresso Mercúrio'
     fill_in 'Razão Social', with: 'Expresso Mercúrio LTDA'
     fill_in 'Domínio', with: '@expressomercurio.com.br'
@@ -26,7 +26,7 @@ describe 'Administrador cadastra nova transportadora' do
     login_as(admin, scope: :admin)
     visit root_path
     click_on('Transportadoras')
-    click_on('Cadastrar Transportadora')
+    click_on('Adicionar Transportadora')
     fill_in 'Nome Fantasia', with: 'Expresso Mercúrio'
     fill_in 'Razão Social', with: 'Expresso Mercúrio LTDA'
     fill_in 'Domínio', with: '@expressomercurio.com.br'

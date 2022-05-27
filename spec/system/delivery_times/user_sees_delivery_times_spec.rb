@@ -20,7 +20,7 @@ describe 'Usuário visita página de intervalos de distância' do
     # Act
     login_as(user, scope: :user)
     visit root_path
-    click_on('Tabela de Distâncias')
+    click_on('Prazos')
 
     # Assert
     expect(page).to have_content('100 km')

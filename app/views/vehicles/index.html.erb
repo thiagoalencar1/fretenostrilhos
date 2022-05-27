@@ -1,12 +1,16 @@
-<h1><%= @carrier.brand_name %> - Veículos Cadastrados</h1>
+<h1 class="text-center"><%= @carrier.brand_name %></h1>
+<h2 class= "text-center">Cadastro de Veículos</h2>
+<br /><br />
+<div class="text-center">
+  <%= link_to '+ Adicionar Veículo', new_vehicle_path, class: 'btn btn-primary' %>
+</div>
+<br /><br/>
 
-<%= link_to 'Cadastrar Veículo', new_vehicle_path, class: 'btn btn-primary' %>
-
-<table class="table">
+<table class="table align-middle">
   <tr>
     <th>Modelo</th>
-    <th>Marca</th>
     <th>Ano</th>
+    <th>Marca</th>
     <th>Placa</th>
     <th>Transportadora</th>
     <th>Ações</th>
@@ -18,7 +22,7 @@
       <td><%= v.brand %></td>
       <td><%= v.license_plate %></td>
       <td><%= v.carrier.brand_name %></td>
-      <td><%= link_to 'Editar', edit_vehicle_path(v) %>
+      <td><%= link_to 'Editar', edit_vehicle_path(v), class: 'btn btn-outline-warning' %></td>
     </tr>
   <% end  %>
 </table>

@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Administrador vista página de ordens' do
   it 'e vê título da página' do
     # Arrange
-    admin = Admin.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', password: 'jabuticaba')
+    admin = Admin.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', password: '123456')
 
     # Act
     login_as(admin, scope: :admin)
@@ -22,8 +22,8 @@ describe 'Administrador vista página de ordens' do
       status: 'active'
     )
     vehicle = Vehicle.create!(model: 'Kia Bongo', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '1')
-    user = User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: 'jabuticaba')
-    admin = Admin.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', password: 'jabuticaba')
+    user = User.create!(name: 'Jefferson Luis', email: 'jef@alfatransportes.com.br', password: '123456')
+    admin = Admin.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', password: '123456')
     order = Order.create!(distance: '101', carrier_id: carrier.id)
     allow(SecureRandom).to receive(:alphanumeric).with(8).and_return('ABC12345')
 
@@ -35,6 +35,6 @@ describe 'Administrador vista página de ordens' do
     # Assert
     expect(page).to have_content('Pedidos')
     # expect(page).to have_content('Pedido: ABC12345')
-    expect(page).to have_content('Transportadora: Alfa Transportes')
+    expect(page).to have_content('Alfa Transportes')
   end
 end

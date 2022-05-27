@@ -58,6 +58,6 @@ describe 'Usuário edita cadastro de Transportadora' do
 
     # Assert
     expect(current_path).to eq vehicle_path(vehicle.id)
-    expect(page).to have_content('Verifique o preenchimento do cadastro.')
+    expect(page).to have_content('Verifique o preenchimento dos campos.')
   end
 end

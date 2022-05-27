@@ -1,25 +1,26 @@
-
-<nav class= "navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to 'Home', root_path, class: 'navbar-brand' %> |
+<nav class= "navbar navbar-expand-lg navbar-light bg-light justify-content-center">
+  <%= link_to 'Home', root_path, class: 'navbar-brand' %>
   <% if user_signed_in? %>
-    <%= link_to 'Veículos', vehicles_path, class: 'nav-item' %> |
-    <%= link_to 'Tabela de Preços', distance_prices_path, class: 'nav-item' %> |
-    <%= link_to 'Tabela de Distâncias', delivery_times_path,class: 'nav-item' %> |
+    <%= link_to 'Veículos', vehicles_path, class: 'nav-item' %> &nbsp; | &nbsp;
+    <%= link_to 'Preços', distance_prices_path, class: 'nav-item' %> &nbsp; | &nbsp;
+    <%= link_to 'Prazos', delivery_times_path,class: 'nav-item' %> &nbsp; | &nbsp;
     <%= current_user.email %>
     <%= button_to 'Sair', destroy_user_session_path, method: :delete, class: 'btn btn-outline-success' %>
   <% elsif !admin_signed_in? %>
-    <%= link_to 'Entrar', new_user_session_path, class: 'nav-item' %> |
+    <%= link_to 'Transportadora', new_user_session_path, class: 'nav-item' %> &nbsp; | &nbsp;
   <% end %>
 
   <% if admin_signed_in? %>
-    <%= link_to 'Pedidos', orders_path %> | 
-    <%= link_to 'Transportadoras', carriers_path %> |
-    <%= link_to 'Cadastrar Transportadora', new_carrier_path %> |
-    <%= link_to 'Intervalo de Preços', price_ranges_path %> |
-    <%= link_to 'Intervalos de Distância', delivery_distances_path %>
+    <%= link_to 'Orçamento', budgets_path %> &nbsp; | &nbsp;
+    <%= link_to 'Pedidos', orders_path %> &nbsp; | &nbsp;
+    <%= link_to 'Transportadoras', carriers_path %> &nbsp; | &nbsp;
+    <%= link_to 'Intervalos de Medidas', price_ranges_path %> &nbsp; | &nbsp;
+    <%= link_to 'Intervalos de Distância', delivery_distances_path %> &nbsp; | &nbsp;
+
     <%= current_admin.email %>
-    <%= button_to 'Sair', destroy_admin_session_path, method: :delete %>
+    &nbsp;&nbsp;&nbsp;<%= button_to 'Sair', destroy_admin_session_path, method: :delete,
+    class: 'btn btn-primary', style: '--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;' %>
   <% elsif !user_signed_in? %>
-    <%= link_to 'Admin', new_admin_session_path %> |
+    <%= link_to 'Admin ', new_admin_session_path %>
   <% end %>
 </nav>

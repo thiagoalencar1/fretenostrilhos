@@ -24,9 +24,9 @@ Carrier.create!(
   status: 'active'
 )
 
-Admin.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', password: 'laranja')
-User.create!(name: 'Jefferson Luis', email: 'jef@alphatransportes.com.br', password: 'laranja')
-User.create!(name: 'Fernando Pessoa', email: 'pessoa@betatransportes.com.br', password: 'laranja')
+Admin.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', password: '123456')
+User.create!(name: 'Jefferson Luis', email: 'jef@alphatransportes.com.br', password: '123456')
+User.create!(name: 'Fernando Pessoa', email: 'pessoa@betatransportes.com.br', password: '123456')
 
 Vehicle.create!(
   model: 'Kia Bongo K2500', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '1'

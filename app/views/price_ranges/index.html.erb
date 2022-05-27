@@ -1,24 +1,33 @@
-<h1>Tabela de Composição Preços</h1>
-<table border="1">
+<h1 class="text-center">Gerenciar Intervalos de Medidas</h1>
+<h2 class="text-center">para cadastro de preço por km</h2>
+<br /><br />
+<table class="table text-center">
   <thead>
     <tr>
+     <th></th>
      <th colspan="2">Volume</th>
      <th colspan="2">Peso</th>
+     <th></th>
     <tr>
+      <th></th>
       <th>De</th>
       <th>Até</th>
       <th>De</th>
       <th>Até</th>
+      <th>Ação</th>
     </tr>
     </tr>
   </thead>
-
-  <% @price_ranges.each do |pr| %>
-  <tr>
-    <td><%= number_with_precision(pr.volume_start, precision: 3) %> m³</td>
-    <td><%= number_with_precision(pr.volume_end, precision: 3) %> m³</td>
-    <td><%= number_with_precision(pr.weight_start, precision: 3) %> kg</td>
-    <td><%= number_with_precision(pr.weight_end, precision: 3) %> kg</td>
-  </tr>
-  <% end %>
+  <tbody>
+    <% @price_ranges.each do |pr| %>
+    <tr>
+      <td><%= pr.id %></td>
+      <td><%= number_with_precision(pr.volume_start, precision: 3) %> m³</td>
+      <td><%= number_with_precision(pr.volume_end, precision: 3) %> m³</td>
+      <td><%= number_with_precision(pr.weight_start, precision: 3) %> kg</td>
+      <td><%= number_with_precision(pr.weight_end, precision: 3) %> kg</td>
+      <td><%= link_to 'Editar', edit_price_range_path(pr), class: 'btn btn-outline-warning' %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>

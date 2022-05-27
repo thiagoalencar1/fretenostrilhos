@@ -1,11 +1,14 @@
-<h1>Tabela de Preços de <%= current_user.carrier.brand_name %></h1>
+<br />
+<h1 class="text-center"><%= current_user.carrier.brand_name %></h1>
+<h2 class= "text-center">Configuração de Preços por km</h2>
+<br /><br />
 <table class="table">
   <thead>
     <tr>
-      <th rowspan="2">Id</th>
+      <th rowspan="2"></th>
       <th colspan="2">Volume</th>
       <th colspan="2">Peso</th>
-      <th rowspan="2">Preço por Km</th>
+      <th rowspan="2">Preço/km</th>
       <th rowspan="2">Ação</th>
     </tr>
     <tr>
@@ -17,7 +20,7 @@
   </thead>
 <% @price_ranges.each do |price_range|  %>
   <tr>
-    <td><%= number_with_precision(price_range.id) %></td>
+    <td><%= price_range.id %></td>
     <td><%= number_with_precision(price_range.volume_start) %> m³</td>
     <td><%= number_with_precision(price_range.volume_end) %> m³</td>
     <td><%= number_with_precision(price_range.weight_start) %> kg</td>

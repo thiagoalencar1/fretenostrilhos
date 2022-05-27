@@ -1,12 +1,28 @@
-<h1>Transportadoras</h1>
-
-<% @carriers.each do |c| %>
-  <h3><%= link_to c.brand_name, c %></h3>
-   <dl>
-      <dt>Razão Social</dt>
-      <dd><%= c.corporate_name %></dd>
-      
-      <dt>Status</dt>
-      <dd><%= c.status %></dd>
-   </dl>
-<% end %>
+<h1 class="text-center">Transportadoras</h1>
+<br />
+<div class="text-center">
+  <%= link_to '+ Adicionar Transportadora', new_carrier_path, class: 'btn btn-primary' %>
+</div>
+<br /><br />
+<table class="table text-center align-middle">
+   <thead>
+      <tr>
+         <th></th>
+         <th>Transportadora</th>
+         <th>Razão Social</th>
+         <th>Status</th>
+         <th>Ações</th>
+      </tr>
+   </thead>
+   <tbody>
+      <% @carriers.each do |c| %>
+         <tr>
+            <td><%= c.id %></td>
+            <td><%= link_to c.brand_name, c %></td>
+            <td><%= c.corporate_name %></td>
+            <td><%= c.status %></td>
+            <td><%= link_to 'Editar', edit_carrier_path(c), class: 'btn btn-outline-warning' %></td>
+         </tr>
+      <% end %>
+   <tbody>
+</table>

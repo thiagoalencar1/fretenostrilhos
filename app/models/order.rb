@@ -3,11 +3,11 @@ class Order < ApplicationRecord
 
   validates :distance, :carrier_id, presence: true
 
-  before_validation :generate_code
+  before_validation :generate_order_number
 
   private
 
-  def generate_code
+  def generate_order_number
     self.order_number = SecureRandom.alphanumeric(8).upcase
   end
 end

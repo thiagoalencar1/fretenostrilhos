@@ -1,8 +1,30 @@
-<h1>Pedidos</h1>
-<%= link_to 'Novo Pedido', new_order_path %>
+<h1 class="text-center">Pedidos</h1>
 <br />
-<% @orders.each do |o| %>
-  Pedido: <%= o.order_number %><br />
-  Transportadora: <%= o.carrier.brand_name %><br />
-  
-<% end %>
+<div class="text-center">
+  <%= link_to 'Novo Pedido', new_order_path, class: 'btn btn-primary' %>
+</div>
+<br />
+<table class="table text-center align-middle">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>Código</th>
+    <th>Transportadora</th>
+    <th>Status</th>
+    <th>Ações</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% count = 1 %>
+    <% @orders.each do |o| %>
+    <tr>
+      <td><%= count %></td>
+      <td class="font-monospace"><%= o.order_number %></td>
+      <td><%= o.carrier.brand_name %></td>
+      <td><%= o.status %></td>
+      <td><%= link_to 'Editar', edit_order_path(o), class: 'btn btn-outline-warning' %></td>
+    </tr>
+    <% count += 1 %>
+    <% end %>
+  </tbody>
+</tabel>

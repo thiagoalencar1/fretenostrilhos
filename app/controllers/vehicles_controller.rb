@@ -15,9 +15,9 @@ class VehiclesController < ApplicationController
     @vehicle.save
 
     if @vehicle.save
-      redirect_to vehicles_path, notice: 'Transportadora salva com sucesso.'
+      redirect_to vehicles_path, notice: 'Veículo salvo com sucesso.'
     else
-      flash[:alert] = 'Verifique o preenchimento do cadastro.'
+      flash[:alert] = 'Verifique o preenchimento dos campos.'
       render :new
     end
   end
@@ -31,10 +31,10 @@ class VehiclesController < ApplicationController
     vehicle_params
 
     if @vehicle.update(vehicle_params)
-      flash[:notice] = 'Transportadora atualizada com sucesso.'
+      flash[:notice] = 'Veículo atualizado com sucesso.'
       redirect_to vehicles_path
     else
-      flash[:alert] = 'Atualização falhou. Verifique o preenchimento do cadastro.'
+      flash[:alert] = 'Atualização falhou. Verifique o preenchimento dos campos.'
       render :edit
     end
   end

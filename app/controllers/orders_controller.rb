@@ -7,6 +7,11 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
+  def calc
+    @total_value = params[:distance] * params[:weight] * params[:volume]
+    render :new
+  end
+
   def create
     @order = Order.new(
       params.require(:order).permit(:distance, :status, :user_id, :carrier_id)

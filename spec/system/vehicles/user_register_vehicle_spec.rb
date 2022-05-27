@@ -18,7 +18,7 @@ describe 'Usuário cadastra novo Veículo' do
     login_as(user, scope: :user)
     visit root_path
     click_on('Veículos')
-    click_on('Cadastrar Veículo')
+    click_on('Adicionar Veículo')
     fill_in 'Modelo', with: 'Trucker 2072'
     fill_in 'Marca', with: 'Volksvagem'
     fill_in 'Ano', with: '2022'
@@ -46,13 +46,13 @@ describe 'Usuário cadastra novo Veículo' do
     login_as(user, scope: :user)
     visit root_path
     click_on('Veículos')
-    click_on('Cadastrar Veículo')
+    click_on('Adicionar Veículo')
     fill_in 'Modelo', with: ''
     fill_in 'Marca', with: 'Volksvagem'
     fill_in 'Ano', with: '2022'
     fill_in 'Placa', with: 'ETY7654'
     click_on 'Enviar'
 
-    expect(page).to have_content('Verifique o preenchimento do cadastro')
+    expect(page).to have_content('Verifique o preenchimento dos campos.')
   end
 end

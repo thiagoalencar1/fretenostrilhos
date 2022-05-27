@@ -12,14 +12,13 @@ describe 'Usuário visita página de intervalos de distância' do
     user = User.create!(name: 'Juliano Costa', email: 'juliano@alphatransportes.com.br', password: 'chuchubeleza')
 
     distance1 = DeliveryDistance.create!(from_km: '0', to_km: '100')
-    distance2 = DeliveryDistance.create!(from_km: '101', to_km: '200')
 
     DeliveryTime.create!(delivery_distance_id: distance1.id, carrier_id: carrier.id, time: 2)
 
     # Act
     login_as(user, scope: :user)
     visit root_path
-    click_on('Tabela de Distâncias')
+    click_on('Prazos')
     first(:link, 'Editar').click
 
     # Assert

@@ -25,7 +25,7 @@ describe 'User entra na Tabela de Preços' do
     # Act
     login_as(user, scope: :user)
     visit root_path
-    click_on('Tabela de Preços')
+    click_on('Preços')
 
     # Assert
     expect(page).to have_content('0,500 m³')

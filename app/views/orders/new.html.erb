@@ -6,8 +6,22 @@
   </div>
 
   <div>
+    <%= o.label :weight, 'Peso (kg): ' %>
+    <%= o.number_field :weight %>
+  </div>
+
+  <div>
+    <%= o.label :volume, 'Volume (m³): ' %>
+    <%= o.number_field :volume %>
+  </div>
+
+  <div>
     <%= o.label :carrier_id, 'Transportadora:' %>
     <%= o.number_field :carrier_id %>
+  </div>
+
+  <div>
+    <%= o.submit 'Calcular', action: :calc %>
   </div>
 
   <div>
