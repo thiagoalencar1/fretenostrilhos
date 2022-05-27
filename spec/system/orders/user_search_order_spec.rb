@@ -74,7 +74,6 @@ describe 'Usuario busca por um pedido' do
 
     # Assert
     expect(page).to have_content("Acompanhamento de Pedido\n#{order.order_number}")
-    expect(page).to have_content('1 pedido encontrado')
     expect(page).to have_content("Código: #{order.order_number}")
   end
 
@@ -86,7 +85,7 @@ describe 'Usuario busca por um pedido' do
     click_on 'Buscar'
 
     # Assert
-    expect(page).to have_content("Acompanhamento de Pedido")
+    expect(page).to have_content('Acompanhamento de Pedido')
     expect(page).to have_content('Pedido XYZTHG98 não encontrado')
   end
 end
