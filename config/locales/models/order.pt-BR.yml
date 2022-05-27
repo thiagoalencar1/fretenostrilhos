@@ -1,0 +1,7 @@
+pt-BR:
+  activerecord:
+    models:
+      order: Ordem
+    attributes:
+      order:
+        order_number: Código

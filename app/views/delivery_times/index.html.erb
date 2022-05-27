@@ -2,7 +2,7 @@
 <h1 class="text-center"><%= current_user.carrier.brand_name %></h1>
 <h2 class= "text-center">Configuração de Prazos</h2>
 <br /><br />
-<table class="table text-center">
+<table class="table text-center m-auto" style="max-width: 800px">
   <thead>
     <tr>
       <th></th>
@@ -21,7 +21,7 @@
       <% distance = @carrier.delivery_times.find_by(delivery_distance_id: dd.id) %>
       <td><%= distance.nil? ? ' ' : (distance.time == 1 ? "#{distance.time} dia" : "#{distance.time} dias" ) %></td>
       <td>
-        <%= distance.nil? ? (link_to 'Cadastrar', new_delivery_time_path(carrier_id: @carrier.id, delivery_distance_id: dd.id)) : (link_to 'Editar', edit_delivery_time_path(dd.id)) %>
+        <%= distance.nil? ? (link_to 'Cadastrar', new_delivery_time_path(carrier_id: @carrier.id, delivery_distance_id: dd.id)) : (link_to 'Editar', edit_delivery_time_path(dd.id), class: 'btn btn-outline-warning') %>
       </td>
     </tr>
   <% end %>

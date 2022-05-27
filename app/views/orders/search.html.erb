@@ -1,0 +1,19 @@
+<h1 class="text-center">Acompanhamento de Pedido</h1>
+<% if @order.present? %>
+  <div class="text-center">
+    <h2><%= @order.order_number %></h2>
+    <p>1 pedido encontrado</p>
+  </div>
+  <dl>
+    <dt><%= Order.human_attribute_name(:order_number) %>:</dt>
+    <dd><%= @order.order_number %></dd>
+
+    <dt><%= Order.human_attribute_name(:carrier_id) %>:</dt>
+    <dd><%= @order.carrier.brand_name %></dd>
+
+    <dt><%= Order.human_attribute_name(:status) %>:</dt>
+    <dd><%= @order.status %></dd>
+  </dl>
+<% else %>
+  <p class="text-center">Pedido <strong><%= params[:query] %></strong> não encontrado
+<% end %>

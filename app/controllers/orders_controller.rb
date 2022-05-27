@@ -7,11 +7,6 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
-  def calc
-    @total_value = params[:distance] * params[:weight] * params[:volume]
-    render :new
-  end
-
   def create
     @order = Order.new(
       params.require(:order).permit(:distance, :status, :user_id, :carrier_id)
@@ -24,5 +19,10 @@ class OrdersController < ApplicationController
       flash[:alert] = 'Pedido não registrado. Confira o preenchimento.'
       render :new
     end
+  end
+
+  def search
+    @order_number = params['query']
+    @order = Order.find_by(order_number: @order_number)
   end
 end
