@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Usuário vê transportadoras' do
   it 'se estiver autenticado' do
     # Arrange
-    visit carriers_path
+    visit admin_carriers_path
     expect(current_path).to eq new_admin_session_path
   end
 
@@ -19,7 +19,7 @@ describe 'Usuário vê transportadoras' do
     visit root_path
     click_on 'Transportadoras'
 
-    expect(current_path).to eq carriers_path
+    expect(current_path).to eq admin_carriers_path
     expect(page).to have_content('Entregas Cometa')
   end
 

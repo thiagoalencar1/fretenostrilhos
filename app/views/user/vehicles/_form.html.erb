@@ -1,5 +1,5 @@
 <div class="m-auto" style="max-width: 700px">
-<%= form_with model: @vehicle do |v| %>
+<%= form_with model: [:user, @vehicle] do |v| %>
   <div>
     <%= v.label :model, 'Modelo' %>
     <%= v.text_field :model %>
@@ -28,4 +28,4 @@
 
 <% end  %>
 
-<%= link_to 'Voltar', vehicles_path %>
+<%= link_to 'Voltar', user_vehicles_path %>

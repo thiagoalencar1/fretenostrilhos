@@ -8,7 +8,7 @@ describe 'Usuario busca por um pedido' do
     # Assert
     within('nav') do
       expect(page).to have_field('Acompanhar Pedido')
-      expect(page).to have_button('Buscar')
+      expect(page).to have_button('Acompanhar')
     end
   end
 
@@ -70,7 +70,7 @@ describe 'Usuario busca por um pedido' do
     # Act
     visit root_path
     fill_in 'Acompanhar Pedido', with: order.order_number
-    click_on 'Buscar'
+    click_on 'Acompanhar'
 
     # Assert
     expect(page).to have_content("Acompanhamento de Pedido\n#{order.order_number}")
@@ -82,7 +82,7 @@ describe 'Usuario busca por um pedido' do
     # Act
     visit root_path
     fill_in 'Acompanhar Pedido', with: 'XYZTHG98'
-    click_on 'Buscar'
+    click_on 'Acompanhar'
 
     # Assert
     expect(page).to have_content('Acompanhamento de Pedido')

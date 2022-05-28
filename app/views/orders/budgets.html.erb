@@ -1,7 +1,7 @@
 <h1 class="text-center">Orçamento</h1>
 <br />
 <div class="m-auto" style="max-width: 400px">
-  <%= form_with url: budgets_path, method: :get do |budget| %>
+  <%= form_with url: budgets_orders_path, method: :get do |budget| %>
     <div class="mb-3">
       <%= budget.label :volume, 'Volume', class: 'col-sm-2 col-form-label'%>
       <%= budget.number_field :volume %>

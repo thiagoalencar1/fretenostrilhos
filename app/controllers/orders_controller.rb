@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_admin!, only: %i[index new create budgets]
+
   def index
     @orders = Order.all
   end
@@ -24,5 +26,9 @@ class OrdersController < ApplicationController
   def search
     @order_number = params['query']
     @order = Order.find_by(order_number: @order_number)
+  end
+
+  def budgets
+    @carriers = Carrier.where(status: :active)
   end
 end

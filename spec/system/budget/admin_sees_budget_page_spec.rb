@@ -4,7 +4,7 @@ describe 'Admin visita página de orçamento' do
   it 'e não está logado' do
     # Arrange
     # Act
-    visit budgets_path
+    visit budgets_orders_path
     # Assert
     expect(page).to have_content('Para continuar, faça login ou registre-se.')
   end

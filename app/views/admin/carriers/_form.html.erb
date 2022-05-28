@@ -1,4 +1,4 @@
-<%= form_with model: @carrier do |c| %>
+<%= form_with model: [:admin, @carrier] do |c| %>
   <div>
     <%= c.label :corporate_name, 'Razão Social' %>
     <%= c.text_field :corporate_name %>

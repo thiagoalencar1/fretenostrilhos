@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'Usuário vê Veívulo' do
   it 'sem sucesso quando não está autenticado' do
-    visit vehicles_path
+    visit user_vehicles_path
     expect(current_path).to eq new_user_session_path
   end
 
@@ -26,7 +26,7 @@ describe 'Usuário vê Veívulo' do
     visit root_path
     click_on 'Veículos'
 
-    expect(current_path).to eq vehicles_path
+    expect(current_path).to eq user_vehicles_path
     expect(page).to have_content('Kia Bongo 2022')
   end
 

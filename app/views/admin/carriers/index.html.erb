@@ -1,7 +1,7 @@
 <h1 class="text-center">Transportadoras</h1>
 <br />
 <div class="text-center">
-  <%= link_to '+ Adicionar Transportadora', new_carrier_path, class: 'btn btn-primary' %>
+  <%= link_to '+ Adicionar Transportadora', new_admin_carrier_path, class: 'btn btn-primary' %>
 </div>
 <br /><br />
 <table class="table text-center align-middle">
@@ -18,10 +18,10 @@
       <% @carriers.each do |c| %>
          <tr>
             <td><%= c.id %></td>
-            <td><%= link_to c.brand_name, c %></td>
+            <td><%= link_to c.brand_name, [:admin, c]  %></td>
             <td><%= c.corporate_name %></td>
             <td><%= c.status %></td>
-            <td><%= link_to 'Editar', edit_carrier_path(c), class: 'btn btn-outline-warning' %></td>
+            <td><%= link_to 'Editar', edit_admin_carrier_path(c), class: 'btn btn-outline-warning' %></td>
          </tr>
       <% end %>
    <tbody>

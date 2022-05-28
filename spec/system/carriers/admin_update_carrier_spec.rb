@@ -20,7 +20,7 @@ describe 'Administrador edita cadastro de Transportadora' do
     click_on 'Enviar'
 
     # Assert
-    expect(current_path).to eq carrier_path(carrier.id)
+    expect(current_path).to eq admin_carrier_path(carrier.id)
     expect(page).to have_content('Expresso Cometa')
   end
 

@@ -17,7 +17,7 @@ describe 'Usuário visualiza detalhes de uma Transportadora' do
     click_on 'Entregas Cometa'
 
     # Assert
-    expect(current_path).to eq carrier_path(carrier.id)
+    expect(current_path).to eq admin_carrier_path(carrier.id)
     expect(page).to have_content('cometa.com.br')
     expect(page).to have_content('09812345678901')
   end

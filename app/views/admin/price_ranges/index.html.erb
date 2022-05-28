@@ -26,7 +26,7 @@
       <td><%= number_with_precision(pr.volume_end, precision: 3) %> m³</td>
       <td><%= number_with_precision(pr.weight_start, precision: 3) %> kg</td>
       <td><%= number_with_precision(pr.weight_end, precision: 3) %> kg</td>
-      <td><%= link_to 'Editar', edit_price_range_path(pr), class: 'btn btn-outline-warning' %></td>
+      <td><%= link_to 'Editar', edit_admin_price_range_path(pr), class: 'btn btn-outline-warning' %></td>
     </tr>
     <% end %>
   </tbody>

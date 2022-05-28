@@ -1,4 +1,4 @@
-class DeliveryTimesController < ApplicationController
+class User::DeliveryTimesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_carrier
 
@@ -17,7 +17,7 @@ class DeliveryTimesController < ApplicationController
     @delivery_time.save
 
     if @delivery_time.save
-      redirect_to delivery_times_path, notice: 'Estimativa de entrega cadastrada com sucesso.'
+      redirect_to user_delivery_times_path, notice: 'Estimativa de entrega cadastrada com sucesso.'
     else
       flash[:alert] = 'Estivativa não cadastrada. Verifique o preenchimento do cadastro.'
       render :new
@@ -37,7 +37,7 @@ class DeliveryTimesController < ApplicationController
 
     if @delivery_time.update(delivery_time_params)
       flash[:notice] = 'Estimativa de entrega atualizada com sucesso.'
-      redirect_to delivery_times_path
+      redirect_to user_delivery_times_path
     else
       flash[:alert] = 'Atualização falhou. Verifique o preenchimento do cadastro.'
     end

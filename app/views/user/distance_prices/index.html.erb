@@ -28,7 +28,7 @@
     <% range_price = @carrier.distance_prices.find_by(price_range_id: price_range.id) %>
     <td>R$ <%= range_price.nil? ? ' ' : number_with_precision(range_price.km_price, precision: 2) %></td>
     <td>
-      <%= range_price.nil? ? (link_to 'Criar', new_distance_price_path(carrier_id: @carrier.id, price_range_id: price_range.id)) : (link_to 'Editar', edit_distance_price_path(range_price.id)) %>
+      <%= range_price.nil? ? (link_to 'Criar', new_user_distance_price_path(carrier_id: @carrier.id, price_range_id: price_range.id)) : (link_to 'Editar', edit_user_distance_price_path(range_price.id)) %>
     </td>
   </tr>
 <% end  %>

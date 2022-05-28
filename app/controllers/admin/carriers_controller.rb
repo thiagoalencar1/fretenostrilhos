@@ -1,4 +1,4 @@
-class CarriersController < ApplicationController
+class Admin::CarriersController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_carrier, only: %i[show edit update]
 
@@ -17,7 +17,7 @@ class CarriersController < ApplicationController
     @carrier.save
 
     if @carrier.save
-      redirect_to @carrier, notice: 'Transportadora salva com sucesso.'
+      redirect_to [:admin, @carrier], notice: 'Transportadora salva com sucesso.'
     else
       flash[:alert] = 'Verifique o preenchimento do cadastro.'
       render :new
@@ -31,7 +31,7 @@ class CarriersController < ApplicationController
 
     if @carrier.update(carrier_params)
       flash[:notice] = 'Transportadora atualizada com sucesso.'
-      redirect_to carrier_path
+      redirect_to admin_carrier_path
     else
       flash[:alert] = 'Atualização não realizada. Verifique o preenchimento do cadastro.'
       render :edit

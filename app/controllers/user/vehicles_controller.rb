@@ -1,4 +1,4 @@
-class VehiclesController < ApplicationController
+class User::VehiclesController < ApplicationController
   before_action :authenticate_user!
   before_action :this_carrier
 
@@ -15,7 +15,7 @@ class VehiclesController < ApplicationController
     @vehicle.save
 
     if @vehicle.save
-      redirect_to vehicles_path, notice: 'Veículo salvo com sucesso.'
+      redirect_to user_vehicles_path, notice: 'Veículo salvo com sucesso.'
     else
       flash[:alert] = 'Verifique o preenchimento dos campos.'
       render :new
@@ -32,7 +32,7 @@ class VehiclesController < ApplicationController
 
     if @vehicle.update(vehicle_params)
       flash[:notice] = 'Veículo atualizado com sucesso.'
-      redirect_to vehicles_path
+      redirect_to user_vehicles_path
     else
       flash[:alert] = 'Atualização falhou. Verifique o preenchimento dos campos.'
       render :edit

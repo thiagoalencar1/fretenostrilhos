@@ -1,6 +1,6 @@
 <%= @carrier.brand_name %><br />
 <%= @delivery_distance.show_delivery_distance %>
-<%= form_with model: @delivery_time do |d| %>
+<%= form_with model: [:user, @delivery_time] do |d| %>
   <div>
     <%= d.label :time, 'Tempo estimado: ' %>
     <%= d.number_field :time, in: 1..99 %> dias

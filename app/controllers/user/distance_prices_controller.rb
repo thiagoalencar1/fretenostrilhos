@@ -1,4 +1,4 @@
-class DistancePricesController < ApplicationController
+class User::DistancePricesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_carrier
 
@@ -17,7 +17,7 @@ class DistancePricesController < ApplicationController
     @distance_price.save
 
     if @distance_price.save
-      redirect_to distance_prices_path, notice: 'Preço por Km cadastrado com sucesso.'
+      redirect_to user_distance_prices_path, notice: 'Preço por Km cadastrado com sucesso.'
     else
       flash[:alert] = 'Verifique o preenchimento do cadastro.'
       render :new
@@ -34,7 +34,7 @@ class DistancePricesController < ApplicationController
     @price_range = PriceRange.find(@distance_price.price_range_id)
 
     if @distance_price.update(params.require(:distance_price).permit(:km_price, :carrier_id, :price_range_id))
-      redirect_to distance_prices_path, notice: 'Preço por Km atualizado com sucesso.'
+      redirect_to user_distance_prices_path, notice: 'Preço por Km atualizado com sucesso.'
     else
       flash[:alert] = 'Verifique o preenchimento do cadastro.'
       render :new

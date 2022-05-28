@@ -2,7 +2,7 @@
 <h2 class= "text-center">Cadastro de Veículos</h2>
 <br /><br />
 <div class="text-center">
-  <%= link_to '+ Adicionar Veículo', new_vehicle_path, class: 'btn btn-primary' %>
+  <%= link_to '+ Adicionar Veículo', new_user_vehicle_path, class: 'btn btn-primary' %>
 </div>
 <br /><br/>
 
@@ -22,7 +22,7 @@
       <td><%= v.brand %></td>
       <td><%= v.license_plate %></td>
       <td><%= v.carrier.brand_name %></td>
-      <td><%= link_to 'Editar', edit_vehicle_path(v), class: 'btn btn-outline-warning' %></td>
+      <td><%= link_to 'Editar', edit_user_vehicle_path(v), class: 'btn btn-outline-warning' %></td>
     </tr>
   <% end  %>
 </table>

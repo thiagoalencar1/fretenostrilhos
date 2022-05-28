@@ -27,7 +27,7 @@ describe 'Usuário edita cadastro de Transportadora' do
     click_on 'Enviar'
 
     # Assert
-    expect(current_path).to eq vehicles_path
+    expect(current_path).to eq user_vehicles_path
     expect(page).to have_content('Kia Bongo K2500')
   end
 
@@ -57,7 +57,7 @@ describe 'Usuário edita cadastro de Transportadora' do
     click_on 'Enviar'
 
     # Assert
-    expect(current_path).to eq vehicle_path(vehicle.id)
+    expect(current_path).to eq user_vehicle_path(vehicle.id)
     expect(page).to have_content('Verifique o preenchimento dos campos.')
   end
 end
