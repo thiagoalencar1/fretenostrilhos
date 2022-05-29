@@ -1,0 +1,47 @@
+
+<%= form_with model: @order do |o| %>
+<% if @order.errors.any? %>
+  <p>Verifique os erros abaixo: </p>
+  <ul>
+  <% @order.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+
+<h2>Informações do pacote:</h2>
+<div>
+  <%= o.label :package_weight %>
+  <%= o.number_field :package_weight %> kg
+</div>
+
+<div>
+  <%= o.label :package_volume %>
+  <%= o.number_field :package_volume %> m³
+</div>
+
+<h2>Localização e Distância</h2>
+<div>
+  <%= o.label :origin_address %>
+  <%= o.text_field :origin_address %>
+</div>
+  <div>
+  <%= o.label :destiny_address %>
+  <%= o.text_field :destiny_address %>
+</div>
+<div>
+  <%= o.label :distance %>
+  <%= o.number_field :distance %> km
+</div>
+
+<h2>Escolher Transportadora</h2>
+<div>
+  <%= o.label :carrier_id, 'Transportadora:' %>
+  <%= o.collection_select :carrier_id, @carriers, :id, :brand_name %>
+</div>
+
+<div>
+  <%= o.submit 'Enviar' %>
+</div>
+<% end %>

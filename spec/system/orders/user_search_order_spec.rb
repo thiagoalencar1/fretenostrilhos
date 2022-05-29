@@ -65,7 +65,11 @@ describe 'Usuario busca por um pedido' do
     DistancePrice.create!(km_price: 1.30, price_range_id: 11, carrier_id: 1)
     DistancePrice.create!(km_price: 1.50, price_range_id: 12, carrier_id: 1)
 
-    order = Order.create!(order_value: '100.00', distance: '200', carrier_id: carrier.id)
+    order = Order.create!(
+      order_value: 100.20, package_volume: 1.5, package_weight: 3, distance: 100,
+      delivery_date: 1.week.from_now, carrier_id: Carrier.first.id,
+      origin_address: 'Rua das Acácias, 235, Salvador, Bahia, Brazil', destiny_address: 'Rua Borges de Barros 35, Ipiaú, Bahia, Brasil'
+    )
 
     # Act
     visit root_path
@@ -81,11 +85,11 @@ describe 'Usuario busca por um pedido' do
     # Arrange
     # Act
     visit root_path
-    fill_in 'Acompanhar Pedido', with: 'XYZTHG98'
+    fill_in 'Acompanhar Pedido', with: 'XYZTHG980987656'
     click_on 'Acompanhar'
 
     # Assert
     expect(page).to have_content('Acompanhamento de Pedido')
-    expect(page).to have_content('Pedido XYZTHG98 não encontrado')
+    expect(page).to have_content('Pedido XYZTHG980987656 não encontrado')
   end
 end

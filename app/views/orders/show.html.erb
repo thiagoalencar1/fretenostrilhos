@@ -1,0 +1,28 @@
+<h1 class="text-center">Detalhes do Pedido</h1>
+<h2 class="text-center"><%= @order.order_number %></h2>
+<dl>
+  <dt>Data de Entrega</dt>
+  <dd><%= @order.delivery_date %></dd>
+
+  <dt>Valor da Ordem</dt>
+  <dd><%= @order.order_value %></dd>
+
+  <dt>Peso do Pacote</dt>
+  <dd><%= @order.package_weight %></dd>
+
+  <dt>Volume do Pacote</dt>
+  <dd><%= @order.package_volume %></dd>
+
+  <dt>Distância</dt>
+  <dd><%= @order.distance %></dd>
+
+  <dt>Transportado por:</dt>
+  <dd><%= @order.carrier.brand_name %></dd>
+
+  <dt>Origem</dt>
+  <dd><%= @order.origin_address %></dd>
+
+  <dt>Destino</dt>
+  <dd><%= @order.destiny_address %></dd>
+  </dl>
+<%= link_to 'Voltar', orders_path, class: 'btn btn-secondary', style: '--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;' %>

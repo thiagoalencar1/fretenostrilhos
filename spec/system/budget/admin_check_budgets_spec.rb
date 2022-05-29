@@ -78,7 +78,7 @@ describe 'Admin consulta orçamentos para um pedido' do
     click_on 'Consultar'
 
     # Assert
-    expect(page).to have_content('Alpha Transportes R$ 105.0 1 dias')
+    expect(page).to have_content('Alpha Transportes R$ 75.0 1 dias')
   end
 
   it 'e não encontra nenhuma transportadora' do

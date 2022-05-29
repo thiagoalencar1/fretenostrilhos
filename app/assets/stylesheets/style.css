@@ -1,0 +1,15 @@
+dt {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.field_with_errors label {
+  color: rgb(255,0,0)
+}
+.field_with_errors input {
+  border-color: rgb(255, 0, 0)
+}
+
+.field_with_errors textarea {
+  border-color: rgb(255, 0, 0)
+}

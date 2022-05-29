@@ -9,7 +9,7 @@ describe 'Usuário visita página de intervalos de distância' do
       status: 'active'
     )
 
-    user = User.create!(name: 'Juliano Costa', email: 'juliano@alfatransportes.com.br', password: 'jabuticaba')
+    user = User.create!(name: 'Juliano Costa', email: 'juliano@alfatransportes.com.br', password: '123456')
 
     distance1 = DeliveryDistance.create!(from_km: '0', to_km: '100')
     distance2 = DeliveryDistance.create!(from_km: '101', to_km: '200')

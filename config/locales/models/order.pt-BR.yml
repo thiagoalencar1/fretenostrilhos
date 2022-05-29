@@ -1,7 +1,21 @@
 pt-BR:
+  pending: "Pendente"
+  accepted: "Aceito"
+  canceled: "Cancelado"
+  delivered: "Entregue"
   activerecord:
     models:
-      order: Ordem
+      order:
+        one: "Pedido"
+        other: "Pedidos"
     attributes:
       order:
         order_number: Código
+        order_value: "Valor Total da Ordem"
+        distance: "Distância"
+        delivery_date: "Data de Entrega Prevista"
+        package_volume: "Volume"
+        package_weight: "Peso"
+        origin_address: "Endereço de Origem"
+        destiny_address: "Endereço de Destino"
+        status: "Situação do Pedido"

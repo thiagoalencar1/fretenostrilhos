@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :delivery_times, only: %i[index new create edit update]
   end
 
-  resources :orders, only: %i[index new create edit update] do
+  resources :orders, only: %i[index show new create edit update] do
     get 'search', on: :collection
     get 'budgets', on: :collection
   end

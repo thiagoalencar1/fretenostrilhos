@@ -1,8 +1,10 @@
 <h1 class="text-center">Pedidos</h1>
 <br />
-<div class="text-center">
-  <%= link_to 'Novo Pedido', new_order_path, class: 'btn btn-primary' %>
-</div>
+<% if admin_signed_in? %>
+  <div class="text-center">
+    <%= link_to 'Novo Pedido', new_order_path, class: 'btn btn-primary' %>
+  </div>
+<% end %>
 <br />
 <table class="table text-center align-middle">
   <thead>
@@ -11,20 +13,26 @@
     <th>Código</th>
     <th>Transportadora</th>
     <th>Status</th>
-    <th>Ações</th>
+    <th colspan="2">Ações</th>
   </tr>
   </thead>
   <tbody>
     <% count = 1 %>
-    <% @orders.each do |o| %>
+    <% @orders.each do |order| %>
     <tr>
       <td><%= count %></td>
-      <td class="font-monospace"><%= o.order_number %></td>
-      <td><%= o.carrier.brand_name %></td>
-      <td><%= o.status %></td>
-      <td><%= link_to 'Editar', edit_order_path(o), class: 'btn btn-outline-warning' %></td>
+      <td class="font-monospace"><%= order.order_number %></td>
+      <td><%= order.carrier.brand_name %></td>
+      <td><%= I18n.t(order.status) %></td>
+      <% if admin_signed_in? %>
+        <td><%= link_to 'Ver Pedido', order_path(order), class: 'btn btn-outline-success' %></td>
+        <td><%= link_to 'Editar', edit_order_path(order), class: 'btn btn-outline-warning' %></td>
+      <% elsif user_signed_in? %>
+        <td><%= link_to 'Atualizar', edit_order_path(order), class: 'btn btn-outline-info' %></td>
+      <% end %>
     </tr>
     <% count += 1 %>
     <% end %>
   </tbody>
-</tabel>
+</table>
+<div style="text-align: right"><%= count-1 %> pedido(s) encontrado(s)</div>
