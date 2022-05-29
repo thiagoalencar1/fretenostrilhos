@@ -51,6 +51,7 @@ describe 'Admin registra uma nova ordem' do
     fill_in('Peso', with: '10')
     fill_in('Volume', with: '1.2')
     fill_in('Endereço de Origem', with: 'Rua Borges de Barros, Ipiaú, Bahia Brasil')
+    fill_in('Endereço de Destino', with: 'Coreto da Praça, Mucugê, Bahia, Brasil')
     fill_in('Distância', with: '300')
     select 'Alfa Transportes', from: 'Transportadora'
     click_on('Enviar')

@@ -1,28 +1,45 @@
 <h1 class="text-center">Detalhes do Pedido</h1>
 <h2 class="text-center"><%= @order.order_number %></h2>
 <dl>
-  <dt>Data de Entrega</dt>
+  <dt>Data de Entrega:</dt>
   <dd><%= @order.delivery_date %></dd>
 
-  <dt>Valor da Ordem</dt>
+  <dt>Valor da Ordem:</dt>
   <dd><%= @order.order_value %></dd>
 
-  <dt>Peso do Pacote</dt>
+  <dt>Peso do Pacote:</dt>
   <dd><%= @order.package_weight %></dd>
 
-  <dt>Volume do Pacote</dt>
+  <dt>Volume do Pacote:</dt>
   <dd><%= @order.package_volume %></dd>
 
-  <dt>Distância</dt>
+  <dt>Distância:</dt>
   <dd><%= @order.distance %></dd>
 
   <dt>Transportado por:</dt>
   <dd><%= @order.carrier.brand_name %></dd>
 
-  <dt>Origem</dt>
+  <dt>Origem:</dt>
   <dd><%= @order.origin_address %></dd>
 
-  <dt>Destino</dt>
+  <dt>Destino:</dt>
   <dd><%= @order.destiny_address %></dd>
+
+  <dt>Situação do Pedido:</dt>
+  <dd><%= I18n.t(@order.status) %></dd>
   </dl>
+
+<table>
+<tr>
+  <td>
+    <%= button_to 'Aceitar Pedido', accepted_order_path(@order.id), class: 'btn btn-outline-info'  %>
+  </td>
+  <td>
+    <%= button_to 'Rejeitar Pedido', rejected_order_path(@order.id), class: 'btn btn-outline-danger' %>
+  </td>
+  <td>
+    <%= button_to 'Marcar como Entregue', delivered_order_path(@order.id), class: 'btn btn-outline-success'  %>
+  </td>
+</tr>
+<table>
 <%= link_to 'Voltar', orders_path, class: 'btn btn-secondary', style: '--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;' %>

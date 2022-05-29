@@ -25,10 +25,9 @@
       <td><%= order.carrier.brand_name %></td>
       <td><%= I18n.t(order.status) %></td>
       <% if admin_signed_in? %>
-        <td><%= link_to 'Ver Pedido', order_path(order), class: 'btn btn-outline-success' %></td>
-        <td><%= link_to 'Editar', edit_order_path(order), class: 'btn btn-outline-warning' %></td>
+        <td><%= link_to 'Ver Pedido', order_path(order), class: 'btn btn-outline-primary' %></td>
       <% elsif user_signed_in? %>
-        <td><%= link_to 'Atualizar', edit_order_path(order), class: 'btn btn-outline-info' %></td>
+        <td><%= link_to 'Ver Pedido', order_path(order), class: 'btn btn-outline-primary' %></td>
       <% end %>
     </tr>
     <% count += 1 %>

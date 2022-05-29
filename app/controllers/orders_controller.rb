@@ -21,9 +21,9 @@ class OrdersController < ApplicationController
                          :origin_address, :destiny_address, :carrier_id, :delivery_date
                        ))
     @carrier = Carrier.find(params[:order][:carrier_id])
-    @volume = params[:order][:package_volume].to_f
-    @weight = params[:order][:package_weight].to_f
-    @distance = params[:order][:distance].to_i
+    @volume = params[:package_volume].to_f
+    @weight = params[:package_weight].to_f
+    @distance = params[:distance].to_i
     @order.order_value = get_order_value(@volume, @weight, @distance, @carrier.id)
     @order.delivery_date = get_delivery_date(@distance, @carrier.id)
     @order.save!
@@ -56,6 +56,24 @@ class OrdersController < ApplicationController
 
   def budgets
     @carriers = Carrier.where(status: :active)
+  end
+
+  def accepted
+    @order = Order.find(params[:id])
+    @order.update(status: :accepted)
+    redirect_to @order, notice: 'Pedido aceito com sucesso.'
+  end
+
+  def rejected
+    @order = Order.find(params[:id])
+    @order.update(status: :rejected)
+    redirect_to @order, notice: 'Pedido aceito com sucesso.'
+  end
+
+  def delivered
+    @order = Order.find(params[:id])
+    @order.update(status: :delivered)
+    redirect_to @order, notice: 'Pedido aceito com sucesso.'
   end
 
   private

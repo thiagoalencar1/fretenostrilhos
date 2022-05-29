@@ -1,7 +1,7 @@
 pt-BR:
   pending: "Pendente"
   accepted: "Aceito"
-  canceled: "Cancelado"
+  rejected: "Rejeitado"
   delivered: "Entregue"
   activerecord:
     models:
