@@ -9,7 +9,8 @@
     <dd><%= @order.carrier.brand_name %></dd>
 
     <dt><%= Order.human_attribute_name(:status) %>:</dt>
-    <dd><%= @order.status %></dd>
+    <dd><%= I18n.t(@order.status) %></dd>
+    
   </dl>
 <% else %>
   <p class="text-center">Pedido <strong><%= params[:query] %></strong> não encontrado

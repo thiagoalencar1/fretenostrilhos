@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @tracking_logs = TrackingLog.where(order_id: @order.id)
   end
 
   def new
@@ -67,13 +68,13 @@ class OrdersController < ApplicationController
   def rejected
     @order = Order.find(params[:id])
     @order.update(status: :rejected)
-    redirect_to @order, notice: 'Pedido aceito com sucesso.'
+    redirect_to @order, alert: 'Pedido rejeitado.'
   end
 
   def delivered
     @order = Order.find(params[:id])
     @order.update(status: :delivered)
-    redirect_to @order, notice: 'Pedido aceito com sucesso.'
+    redirect_to @order, notice: 'Pedido entregue!'
   end
 
   private
@@ -82,7 +83,7 @@ class OrdersController < ApplicationController
     carrier = Carrier.find(carrier_id)
     carrier.price_ranges.each do |pr|
       if (volume >= pr.volume_start && volume <= pr.volume_end) && (weight >= pr.weight_start && weight <= pr.weight_end)
-        return distance * DistancePrice.find_by(carrier_id: carrier.id, price_range_id: pr.id).km_price
+        return distance * DistancePrice.find_by(carrier_id: carrier.id, price_range_id: pr.id).km_price.to_f
       end
     end
   end

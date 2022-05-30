@@ -1,0 +1,22 @@
+<div class="text-center">
+  <h1>Atualização de Rota de Entrega</h1>
+  <h2><%= @order.order_number %></h2>
+</div>
+
+<%= form_with model: [@order, @tracking_log] do |log| %>
+  <div>
+    <%= log.label :what, 'Descrição' %>
+    <%= log.text_field :what %>
+  </div>
+  <div>
+    <%= log.label :where, 'Local' %>
+    <%= log.text_field :where %>
+  </div>
+  <div>
+    <%= log.label :when, 'Data' %>
+    <%= log.date_field :when %>
+  </div>
+  <div>
+    <%= log.submit 'Atualizar Rota' %>
+  </div>
+<% end %>

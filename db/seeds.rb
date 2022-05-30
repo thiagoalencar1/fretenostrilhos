@@ -101,7 +101,7 @@ DistancePrice.create!(km_price: 1.05, price_range_id: 10, carrier_id: 2)
 DistancePrice.create!(km_price: 1.30, price_range_id: 11, carrier_id: 2)
 
 # Delivery Distance Ranges (deadlines) - ADMIN
-DeliveryDistance.create!(from_km: '25', to_km: '200')
+DeliveryDistance.create!(from_km: '0', to_km: '200')
 DeliveryDistance.create!(from_km: '201', to_km: '400')
 DeliveryDistance.create!(from_km: '401', to_km: '600')
 DeliveryDistance.create!(from_km: '601', to_km: '800')

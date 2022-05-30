@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: %i[index show new create edit update] do
+    resources :tracking_logs, only: %i[new create]
     get 'search', on: :collection
     get 'budgets', on: :collection
     post 'accepted', on: :member
