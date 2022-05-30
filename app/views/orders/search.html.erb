@@ -10,8 +10,33 @@
 
     <dt><%= Order.human_attribute_name(:status) %>:</dt>
     <dd><%= I18n.t(@order.status) %></dd>
-    
   </dl>
+  <br /><br />
+  <% if !@order.tracking_logs.empty? %>
+    <table class="table text-center">
+     <thead>
+        <tr>
+         <th>Data</th>
+         <th>Descrição</th>
+         <th>Local</th>
+       </tr>
+      </thead>
+     <tbody>
+       <% @order.tracking_logs.sort.reverse.each do |log| %>
+        <tr>
+          <td><%= log.when %></td>
+          <td><%= log.what %></td>
+          <td><%= log.where %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <div class="text-center">
+      <p>Nenhum registro de acompanhamento até agora. Consulte mais tarde.</p>
+    </div>
+  <% end %>
 <% else %>
   <p class="text-center">Pedido <strong><%= params[:query] %></strong> não encontrado
 <% end %>
+
