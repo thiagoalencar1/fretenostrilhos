@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
     if @order.save
       redirect_to @order, notice: 'Pedido registrado com sucesso.'
     else
-      flash[:alert].now = 'Pedido não registrado. Confira o preenchimento.'
+      flash.now[:alert] = 'Pedido não registrado. Confira o preenchimento.'
       render :new
     end
   end
