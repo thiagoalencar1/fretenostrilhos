@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    # @carriers = Carrier.active
+    @carriers = Carrier.active
     @order = Order.new(params.require(:order).permit(
                          :order_number, :order_value, :distance, :package_weight, :package_volume,
                          :origin_address, :destiny_address, :carrier_id, :delivery_date
@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
     @distance = params[:distance].to_i
     @order.order_value = get_order_value(@volume, @weight, @distance, @carrier.id)
     @order.delivery_date = get_delivery_date(@distance, @carrier.id)
-    @order.save!
+    @order.save
 
     if @order.save
       redirect_to @order, notice: 'Pedido registrado com sucesso.'

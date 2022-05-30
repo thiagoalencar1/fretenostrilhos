@@ -1,24 +1,26 @@
 
 <%= form_with model: @order do |o| %>
 <% if @order.errors.any? %>
+<div style="color: rgb(255,0,0)">
   <p>Verifique os erros abaixo: </p>
   <ul>
   <% @order.errors.full_messages.each do |msg| %>
     <li><%= msg %></li>
   <% end %>
   </ul>
+  </div>
 <% end %>
 
 
 <h2>Informações do pacote:</h2>
 <div>
   <%= o.label :package_weight %>
-  <%= o.number_field :package_weight %> kg
+  <%= o.number_field :package_weight, step: :any %> kg
 </div>
 
 <div>
   <%= o.label :package_volume %>
-  <%= o.number_field :package_volume %> m³
+  <%= o.number_field :package_volume, step: :any %> m³
 </div>
 
 <h2>Localização e Distância</h2>
@@ -42,8 +44,8 @@
   <%= o.collection_select :carrier_id, @carriers, :id, :brand_name %>
 </div>
 
-<%= o.hidden_field :order_value, value: 0 %>
-<%= o.hidden_field :delivery_date, value: 10.days.from_now %>
+<%= o.hidden_field :order_value, id: 'total_order_value'  %>
+<%= o.hidden_field :delivery_date, id:'delivery_date', value: 10.days.from_now %>
 <div>
   <%= o.submit 'Enviar' %>
 </div>

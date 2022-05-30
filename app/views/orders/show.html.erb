@@ -29,6 +29,7 @@
   <dd><%= I18n.t(@order.status) %></dd>
   </dl>
 
+<% if user_signed_in?%>
 <table>
 <tr>
   <td>
@@ -80,3 +81,4 @@
 <br />
 <br />
 <br />
+<% end %>
