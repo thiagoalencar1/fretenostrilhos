@@ -44,12 +44,6 @@ Vehicle.create!(
   model: 'Scania V8', brand: 'Scania', license_plate: 'LKO9I09', year: 2022, carrier_id: '3'
 )
 
-Order.create!(
-  order_value: 100.20, package_volume: 1.5, package_weight: 3, distance: 100,
-  delivery_date: 1.week.from_now, carrier_id: Carrier.first.id,
-  origin_address: 'Rua das Acácias, 235, Salvador, Bahia, Brazil', destiny_address: 'Rua Borges de Barros 35, Ipiaú, Bahia, Brasil'
-)
-
 # 0.001 - 0.500
 PriceRange.create!(volume_start: '0.001', volume_end: '0.500', weight_start: '0.001', weight_end: '10.000')
 PriceRange.create!(volume_start: '0.001', volume_end: '0.500', weight_start: '10.000', weight_end: '30.000')
@@ -143,3 +137,9 @@ DeliveryTime.create!(time: 9, carrier_id: 3, delivery_distance_id: 6)
 DeliveryTime.create!(time: 10, carrier_id: 3, delivery_distance_id: 7)
 DeliveryTime.create!(time: 12, carrier_id: 3, delivery_distance_id: 8)
 DeliveryTime.create!(time: 14, carrier_id: 3, delivery_distance_id: 9)
+
+Order.create!(
+  order_value: 100.20, package_volume: 1.5, package_weight: 3, distance: 100,
+  delivery_date: 1.week.from_now, carrier_id: Carrier.first.id,
+  origin_address: 'Rua das Acácias, 235, Salvador, Bahia, Brazil', destiny_address: 'Rua Borges de Barros 35, Ipiaú, Bahia, Brasil'
+)

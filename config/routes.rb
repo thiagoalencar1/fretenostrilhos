@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :vehicles, only: %i[index new create edit update]
     resources :distance_prices, only: %i[index new create edit update]
     resources :delivery_times, only: %i[index new create edit update]
+    resources :carriers, only: %i[show edit update]
   end
 
   resources :orders, only: %i[index show new create edit update] do

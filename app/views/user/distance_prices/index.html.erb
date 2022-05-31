@@ -2,6 +2,12 @@
 <h1 class="text-center"><%= current_user.carrier.brand_name %></h1>
 <h2 class= "text-center">Configuração de Preços por km</h2>
 <br /><br />
+<div class="text-center">
+  Valor mínimo do frete: <%= current_user.carrier.minimum_price %><br />
+  <%= link_to 'Configurar valor mínimo de frete', edit_user_carrier_path(@carrier), class: 'btn btn-primary', style: '--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;' %>
+</div>
+<br />
+
 <table class="table text-center m-auto align-middle" style="max-width: 800px">
   <thead>
     <tr>

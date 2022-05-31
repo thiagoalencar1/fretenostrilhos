@@ -8,7 +8,6 @@ class Order < ApplicationRecord
   validates :package_weight, :package_volume, :distance, :origin_address, :destiny_address, :order_value,
             :delivery_date, presence: true
   validates :package_weight, :package_volume, :distance, numericality: true
-
   validate :check_volume
   validate :check_weight
 

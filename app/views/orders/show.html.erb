@@ -1,5 +1,6 @@
 <h1 class="text-center">Detalhes do Pedido</h1>
 <h2 class="text-center"><%= @order.order_number %></h2>
+  <%= link_to 'Voltar', orders_path, class: 'btn btn-primary' %>
 <dl>
   <dt>Data de Entrega:</dt>
   <dd><%= @order.delivery_date %></dd>

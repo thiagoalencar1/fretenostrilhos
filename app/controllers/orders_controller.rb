@@ -46,8 +46,11 @@ class OrdersController < ApplicationController
     order_params = params.require(:order).permit(
       :warehouse_id, :supplier_id, :estimated_delivery_date
     )
-    @order.update(order_params)
-    redirect_to @order, notice: 'Pedido atualizado com sucesso.'
+    if @order.update(order_params)
+      redirect_to @order, notice: 'Pedido atualizado com sucesso.'
+    else
+      flash.now[:alert] = 'Pedido não atualizado. Confira o preenchimento.'
+    end
   end
 
   def search # fazer um seach e um follow (follow para o público externo e search para o admin)
@@ -82,9 +85,14 @@ class OrdersController < ApplicationController
   def get_order_value(volume, weight, distance, carrier_id)
     carrier = Carrier.find(carrier_id)
     carrier.price_ranges.each do |pr|
-      if (volume >= pr.volume_start && volume <= pr.volume_end) && (weight >= pr.weight_start && weight <= pr.weight_end)
-        return distance * DistancePrice.find_by(carrier_id: carrier.id, price_range_id: pr.id).km_price.to_f
+      unless (volume >= pr.volume_start && volume <= pr.volume_end) && (weight >= pr.weight_start && weight <= pr.weight_end)
+        next
       end
+
+      total_order_value = distance * DistancePrice.find_by(carrier_id: carrier.id,
+                                                           price_range_id: pr.id).km_price.to_f
+      total_order_value = carrier.minimum_price if total_order_value < carrier.minimum_price
+      return total_order_value
     end
   end
 

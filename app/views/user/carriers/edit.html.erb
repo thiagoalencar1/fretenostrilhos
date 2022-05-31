@@ -1,0 +1,8 @@
+<h1 class="text-center">Configurar Preço Mínimo para o Frete</h1>
+<div>
+  <%= form_with(model: [:user, @carrier]) do |c| %>
+    <%= c.label :minimum_price, 'Valor mínimo de frete' %>
+    <%= c.number_field :minimum_price  %>
+    <%= c.submit 'Salvar', class: 'btn btn-outline-primary' %>
+  <% end %>
+</div>

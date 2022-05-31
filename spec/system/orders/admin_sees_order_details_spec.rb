@@ -3,7 +3,6 @@ require 'rails_helper'
 describe 'Admin entra em um pedido' do
   it 'e vê os detalhes' do
     # Arrange
-    # Arrange
     carrier = Carrier.create!(
       brand_name: 'Alpha Transportes', corporate_name: 'Alta Transportes LTDA',
       email_domain: 'alphatransportes.com.br', taxpayer_number: '38554111000112',

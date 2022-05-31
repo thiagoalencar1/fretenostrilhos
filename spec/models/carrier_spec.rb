@@ -46,6 +46,17 @@ RSpec.describe Carrier, type: :model do
         # Act and Assert
         expect(carrier).not_to be_valid
       end
+
+      it 'falso quando _minimum_price_ for vazio' do
+        # Arrange
+        carrier = Carrier.new(
+          brand_name: 'Expresso Mercúrio', corporate_name: 'Expresso Mercúrio LTD',
+          email_domain: 'expressomercurio.com.br', taxpayer_number: '004406950001202',
+          status: 'active', minimum_price: ''
+        )
+        # Act and Assert
+        expect(carrier).not_to be_valid
+      end
     end
 
     it 'falso quando _taxpayer_number_ for menor ou maior do que 14 caracteres' do
