@@ -1,7 +1,6 @@
 # :truck: Frete nos Trilhos
 
-- Projeto em andamento.
-- Sistema de frete simplificado para gestão de produtos em galpões.
+- Sistema de frete simplificado.
 
 ## :clipboard: Product Backlog para acompanhar o desenvolvimento do projeto
 
