@@ -37,7 +37,7 @@
 
 ## :memo: Observações
 
-Projeto de aprendizado do framework Ruby on Rails e de boas práticas de programação. O TDD foi de uso intensivo durante o curso sendo o CRUD feito de forma manual (nada de scaffold) no intuito de fortalecer o fluxo de Desenvolvimento Guiado por Testes em cada item do CRUD de cada Model.
+Projeto realizado durante o TreinaDev 8 com o a finalidade de consolidar o aprendizado do framework Ruby on Raill, Arquitetura Web e boas práticas de programação. O Desenvolvimento Guiado por Testes (aka TDD) foi de uso intensivo durante o curso.
 
 ## :floppy_disk: Modelo de Dados
 ![db_model_frete_nos_trilhos](https://user-images.githubusercontent.com/14118336/171166659-d8767ed0-4cde-4319-aec2-fffffbc11e56.png)
