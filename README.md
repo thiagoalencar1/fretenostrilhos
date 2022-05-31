@@ -47,4 +47,4 @@ Projeto de aprendizado do framework Ruby on Rails e de boas práticas de program
 - É necessário equilibrar prazos, expectativas e habilidade técnica.
 - Não pule o fluxo de TDD achando que vai ser mais rápido desenvolvendo alguma feature. Você se arrependerá amargamente durante o debug.
 - Cuidado com o preciosismo (_golum, golum_). Ele pode te fazer perder muito tempo com coisas desnecessárias.
-- É importante conhecer o Go Horse process e saber ficar longe dele!
+- Make it Work, Right and Fast. Gerar valor em um padrão mínimo de qualidade e em uma estrutua que permita a evolução, depois melhorar a estrutura (obs: não é go horse).   
