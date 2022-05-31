@@ -1,6 +1,6 @@
 <%= @carrier.brand_name  %> <br />
 <%= @price_range.show_price_range %> <br />
-<%= form_with model: @distance_price do |c| %>
+<%= form_with model: [:user, @distance_price] do |c| %>
   <div>
     <%= c.label :km_price, 'Preço / Km' %>
     <%= c.text_field :km_price%>
