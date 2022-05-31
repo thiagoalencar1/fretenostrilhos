@@ -5,11 +5,11 @@
 
 <%= form_with model: [@order, @tracking_log] do |log| %>
   <div>
-    <%= log.label :what, 'Descrição' %>
+    <%= log.label :what %>
     <%= log.text_field :what %>
   </div>
   <div>
-    <%= log.label :where, 'Local' %>
+    <%= log.label :where %>
     <%= log.text_field :where %>
   </div>
   

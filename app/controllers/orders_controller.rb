@@ -22,9 +22,9 @@ class OrdersController < ApplicationController
                          :origin_address, :destiny_address, :carrier_id, :delivery_date
                        ))
     @carrier = Carrier.find(params[:order][:carrier_id])
-    @volume = params[:package_volume].to_f
-    @weight = params[:package_weight].to_f
-    @distance = params[:distance].to_i
+    @volume = params[:order][:package_volume].to_f
+    @weight = params[:order][:package_weight].to_f
+    @distance = params[:order][:distance].to_i
     @order.order_value = get_order_value(@volume, @weight, @distance, @carrier.id)
     @order.delivery_date = get_delivery_date(@distance, @carrier.id)
     @order.save

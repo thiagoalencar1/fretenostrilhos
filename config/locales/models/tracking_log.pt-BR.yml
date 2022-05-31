@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      tracking_log: Registro de Acompanhamento
+    attributes:
+      tracking_log:
+        when: "Data da Atualização"
+        what: "Descrição"
+        where: "Localização"
