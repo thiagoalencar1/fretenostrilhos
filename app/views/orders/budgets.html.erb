@@ -26,7 +26,7 @@
 <hr >
 
 <% if @carriers.empty? %>
-  <div>Nenhuma transportadora encontrada.</div>
+  <div>Nenhuma orçamento encontrado.</div>
 <% else %>
   <% if params[:package_volume].present? && params[:distance].present? && params[:package_weight].present? %>
   <h3 class="text-center">Resultado de Orçamento por Transportadora</h3>
@@ -41,12 +41,12 @@
     </thead>
     <tbody>
       <% @carriers.each do |carrier| %>
-      <tr>
-        <td><%= carrier.brand_name %></td>
-        <td>R$ <%= carrier.total_order_value(params[:package_volume].to_f, params[:package_weight].to_f, params[:distance].to_i) %></td>
-        <td><%= carrier.estimated_delivery_date(params[:distance].to_i) %> dias</td>
-        <td><%= link_to "Abrir ordem na #{carrier.brand_name}.", new_order_path, class: 'btn btn-outline-warning' %></td>
-      </tr>
+        <tr>
+          <td><%= carrier.brand_name %></td>
+          <td>R$ <%= carrier.total_order_value(params[:package_volume].to_f, params[:package_weight].to_f, params[:distance].to_i) %></td>
+          <td><%= carrier.estimated_delivery_date(params[:distance].to_i) %> dias</td>
+          <td><%= button_to "Abrir ordem na #{carrier.brand_name}.", new_order_path, class: 'btn btn-outline-warning' %></td>
+        </tr>
       <% end %>
   </table>
   <% end %>

@@ -1,8 +1,15 @@
 class OrdersController < ApplicationController
   before_action :authenticate_admin!, only: %i[new create budgets]
+  before_action :authenticate_user!, only: %i[edit update accepted rejected delivered]
 
   def index
-    @orders = Order.all
+    if admin_signed_in?
+      @orders = Order.all
+    elsif user_signed_in?
+      @orders = Order.where(carrier_id: current_user.carrier_id)
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def show
