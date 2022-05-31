@@ -3,7 +3,7 @@
 <%= form_with model: [:user, @distance_price] do |c| %>
   <div>
     <%= c.label :km_price, 'Preço / Km' %>
-    <%= c.text_field :km_price%>
+    <%= c.number_field :km_price%>
   </div>
 
   <%= c.hidden_field :carrier_id, value: @carrier.id %>
