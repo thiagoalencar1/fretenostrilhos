@@ -41,6 +41,7 @@ Projeto de aprendizado do framework Ruby on Rails e de boas práticas de program
 
 ## :floppy_disk: Modelo de Dados
 ![db_model_frete_nos_trilhos](https://user-images.githubusercontent.com/14118336/171166659-d8767ed0-4cde-4319-aec2-fffffbc11e56.png)
+*Modelo de dados contruído utilizando o Navicat Data Modeler.
 
 ## :paperclip: Aprendizagens
 - É necessário equilibrar prazos, expectativas e habilidade técnica.
