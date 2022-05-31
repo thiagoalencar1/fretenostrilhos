@@ -13,6 +13,12 @@
 - Rails 7.0.2.3
 - SQLite 3
 
+### Gems utilizadas
+- RSpec
+- Capyabra
+- Byebug
+- Devise
+
 ## :arrows_counterclockwise: Rodando o projeto
 
 - Clone o projeto: `git@github.com:thiagogondim/fretenostrilhos.git`
@@ -33,10 +39,11 @@
 
 Projeto de aprendizado do framework Ruby on Rails e de boas práticas de programação. O TDD foi de uso intensivo durante o curso sendo o CRUD feito de forma manual (nada de scaffold) no intuito de fortalecer o fluxo de Desenvolvimento Guiado por Testes em cada item do CRUD de cada Model.
 
-## :floppy_disk: Modelo de Dados\*
-
-\*O modelo de dados está em amadurecimento e será modificado de acordo com o avanço da implementação do sistema.
-![db_model](https://user-images.githubusercontent.com/14118336/170393011-3b6ed362-cabb-4eab-a63b-d70aefada719.png)
+## :floppy_disk: Modelo de Dados
+![db_model_frete_nos_trilhos](https://user-images.githubusercontent.com/14118336/171166659-d8767ed0-4cde-4319-aec2-fffffbc11e56.png)
 
 ## :paperclip: Aprendizagens
-Dediquei um tempo razoável tentando encontrar a melhor modelagem para o banco de dados. Não só desenhando o banco como também no momento de implementar uma lógica condizente com o modelo desejado. Cito, por exemplo, o ponto de preços e prazos e também na questão da ordem de serviço e endereços. Por conta da pouca experiência na implementação de um tipo de modelagem mais refinada utilizando o Rails, isto tomou muito tempo e ficou apertado para implementar algumas outras features solicitadas da melhor forma possíve. Desta forma, fica o registro da experiência: é necessário adequar expectativas, prazos e habilidade técnica adequada.
+- É necessário equilibrar prazos, expectativas e habilidade técnica.
+- Não pule o fluxo de TDD achando que vai ser mais rápido desenvolvendo alguma feature. Você se arrependerá amargamente durante o debug.
+- Cuidado com o preciosismo (_golum, golum_). Ele pode te fazer perder muito tempo com coisas desnecessárias.
+- É importante conhecer o Go Horse process e saber ficar longe dele!
