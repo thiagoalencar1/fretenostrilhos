@@ -26,7 +26,7 @@
 <hr >
 
 <% if @carriers.empty? %>
-  <div>Nenhuma orçamento encontrado.</div>
+  <div>Nenhum orçamento encontrado para as especificações inseridas.</div>
 <% else %>
   <% if params[:package_volume].present? && params[:distance].present? && params[:package_weight].present? %>
   <h3 class="text-center">Resultado de Orçamento por Transportadora</h3>

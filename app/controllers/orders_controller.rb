@@ -24,16 +24,19 @@ class OrdersController < ApplicationController
 
   def create
     @carriers = Carrier.active
+
     @order = Order.new(params.require(:order).permit(
                          :order_number, :order_value, :distance, :package_weight, :package_volume,
                          :origin_address, :destiny_address, :carrier_id, :delivery_date
                        ))
+
     @carrier = Carrier.find(params[:order][:carrier_id])
     @volume = params[:order][:package_volume].to_f
     @weight = params[:order][:package_weight].to_f
     @distance = params[:order][:distance].to_i
-    @order.order_value = get_order_value(@volume, @weight, @distance, @carrier.id)
-    @order.delivery_date = get_delivery_date(@distance, @carrier.id)
+    @order.order_value = Order.get_order_value(@volume, @weight, @distance, @carrier.id)
+    @order.delivery_date = Order.get_delivery_date(@distance, @carrier.id)
+
     @order.save
 
     if @order.save
@@ -85,30 +88,5 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.update(status: :delivered)
     redirect_to @order, notice: 'Pedido entregue!'
-  end
-
-  private
-
-  def get_order_value(volume, weight, distance, carrier_id)
-    carrier = Carrier.find(carrier_id)
-    carrier.price_ranges.each do |pr|
-      unless (volume >= pr.volume_start && volume <= pr.volume_end) && (weight >= pr.weight_start && weight <= pr.weight_end)
-        next
-      end
-
-      total_order_value = distance * DistancePrice.find_by(carrier_id: carrier.id,
-                                                           price_range_id: pr.id).km_price.to_f
-      total_order_value = carrier.minimum_price if total_order_value < carrier.minimum_price
-      return total_order_value
-    end
-  end
-
-  def get_delivery_date(distance, carrier_id)
-    carrier = Carrier.find(carrier_id)
-    carrier.delivery_distances.each do |dd|
-      if distance >= dd.from_km && distance <= dd.to_km
-        return DeliveryTime.find_by(carrier_id: carrier.id, delivery_distance_id: dd.id).time.days.from_now
-      end
-    end
   end
 end

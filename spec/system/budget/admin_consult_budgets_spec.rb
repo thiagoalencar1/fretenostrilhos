@@ -94,6 +94,6 @@ describe 'Admin consulta orçamentos para um pedido' do
     click_on 'Consultar'
 
     # Assert
-    expect(page).to have_content('Nenhuma transportadora encontrada.')
+    expect(page).to have_content('Nenhum orçamento encontrado para as especificações inseridas.')
   end
 end

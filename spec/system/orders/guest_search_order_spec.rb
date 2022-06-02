@@ -13,62 +13,30 @@ describe 'Usuario busca por um pedido' do
   end
 
   it 'e encontra um pedido' do
+    # Arrange
+    admin = Admin.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', password: '123456')
+
     carrier = Carrier.create!(
       brand_name: 'Alpha Transportes', corporate_name: 'Alta Transportes LTDA',
       email_domain: 'alphatransportes.com.br', taxpayer_number: '38554111000112',
       status: 'active'
     )
 
-    distance1 = DeliveryDistance.create!(from_km: '0', to_km: '100')
-    distance2 = DeliveryDistance.create!(from_km: '101', to_km: '200')
-    distance3 = DeliveryDistance.create!(from_km: '201', to_km: '300')
-    distance4 = DeliveryDistance.create!(from_km: '301', to_km: '400')
-    distance5 = DeliveryDistance.create!(from_km: '401', to_km: '500')
+    user = User.create!(name: 'Jota Lima', email: 'jotalima@alphatransportes.com.br', password: '123456')
 
-    DeliveryTime.create!(delivery_distance_id: distance1.id, carrier_id: carrier.id, time: 1)
-    DeliveryTime.create!(delivery_distance_id: distance2.id, carrier_id: carrier.id, time: 2)
-    DeliveryTime.create!(delivery_distance_id: distance3.id, carrier_id: carrier.id, time: 3)
-    DeliveryTime.create!(delivery_distance_id: distance4.id, carrier_id: carrier.id, time: 4)
-    DeliveryTime.create!(delivery_distance_id: distance5.id, carrier_id: carrier.id, time: 5)
+    distance = DeliveryDistance.create!(from_km: '0', to_km: '100')
+    DeliveryTime.create!(delivery_distance_id: distance.id, carrier_id: carrier.id, time: 3)
 
-    # 0.001 - 0.500
-    PriceRange.create!(volume_start: '0.001', volume_end: '0.500', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '0.001', volume_end: '0.500', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '0.001', volume_end: '0.500', weight_start: '30.000', weight_end: '9999.000')
-    # 0.501 - 1.000
-    PriceRange.create!(volume_start: '0.501', volume_end: '1.000', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '0.501', volume_end: '1.000', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '0.501', volume_end: '1.000', weight_start: '30.000', weight_end: '9999.000')
-    # 1.001 - 1.500
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '30.000', weight_end: '9999.000')
-    # 1.501 - 2.000
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '30.000', weight_end: '9999.000')
+    price_range = PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '0.000', weight_end: '10.000')
+    DistancePrice.create!(km_price: 1.0, price_range_id: price_range.id, carrier_id: carrier.id)
 
-    # DistancePrice - AplhaTransportes - # 0.001 - 0.500
-    DistancePrice.create!(km_price: 0.5, price_range_id: 1, carrier_id: 1)
-    DistancePrice.create!(km_price: 0.8, price_range_id: 2, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.0, price_range_id: 3, carrier_id: 1)
-    # DistancePrice - AplhaTransportes - # 0.501 - 1.000
-    DistancePrice.create!(km_price: 0.75, price_range_id: 4, carrier_id: 1)
-    DistancePrice.create!(km_price: 0.90, price_range_id: 5, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.05, price_range_id: 6, carrier_id: 1)
-    # DistancePrice - AplhaTransportes - # 1.001 - 1.500
-    DistancePrice.create!(km_price: 0.95, price_range_id: 7, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.10, price_range_id: 8, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.25, price_range_id: 9, carrier_id: 1)
-    # DistancePrice - AplhaTransportes - # 1.501 - 2.000
-    DistancePrice.create!(km_price: 1.05, price_range_id: 10, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.30, price_range_id: 11, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.50, price_range_id: 12, carrier_id: 1)
+    vehicle = Vehicle.create!(model: 'Kia Bongo', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '1')
 
     order = Order.create!(
-      order_value: 100.20, package_volume: 1.5, package_weight: 3, distance: 100,
-      delivery_date: 1.week.from_now, carrier_id: Carrier.first.id,
-      origin_address: 'Rua das Acácias, 235, Salvador, Bahia, Brazil', destiny_address: 'Rua Borges de Barros 35, Ipiaú, Bahia, Brasil'
+      package_volume: 1.5, package_weight: 3, distance: 100,
+      carrier:, origin_address: 'Rua das Acácias, 235, Salvador, Bahia, Brazil',
+      destiny_address: 'Rua Borges de Barros 35, Ipiaú, Bahia, Brasil',
+      order_value: 100.20, delivery_date: 3.days.from_now
     )
 
     # Act
@@ -94,62 +62,29 @@ describe 'Usuario busca por um pedido' do
   end
 
   it 'e vê histórico de atualizações do pedido' do
+    admin = Admin.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', password: '123456')
+    
     carrier = Carrier.create!(
       brand_name: 'Alpha Transportes', corporate_name: 'Alta Transportes LTDA',
       email_domain: 'alphatransportes.com.br', taxpayer_number: '38554111000112',
       status: 'active'
     )
 
-    distance1 = DeliveryDistance.create!(from_km: '0', to_km: '100')
-    distance2 = DeliveryDistance.create!(from_km: '101', to_km: '200')
-    distance3 = DeliveryDistance.create!(from_km: '201', to_km: '300')
-    distance4 = DeliveryDistance.create!(from_km: '301', to_km: '400')
-    distance5 = DeliveryDistance.create!(from_km: '401', to_km: '500')
+    user = User.create!(name: 'Jota Lima', email: 'jotalima@alphatransportes.com.br', password: '123456')
 
-    DeliveryTime.create!(delivery_distance_id: distance1.id, carrier_id: carrier.id, time: 1)
-    DeliveryTime.create!(delivery_distance_id: distance2.id, carrier_id: carrier.id, time: 2)
-    DeliveryTime.create!(delivery_distance_id: distance3.id, carrier_id: carrier.id, time: 3)
-    DeliveryTime.create!(delivery_distance_id: distance4.id, carrier_id: carrier.id, time: 4)
-    DeliveryTime.create!(delivery_distance_id: distance5.id, carrier_id: carrier.id, time: 5)
+    distance = DeliveryDistance.create!(from_km: '201', to_km: '300')
+    DeliveryTime.create!(delivery_distance_id: distance.id, carrier_id: carrier.id, time: 3)
 
-    # 0.001 - 0.500
-    PriceRange.create!(volume_start: '0.001', volume_end: '0.500', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '0.001', volume_end: '0.500', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '0.001', volume_end: '0.500', weight_start: '30.000', weight_end: '9999.000')
-    # 0.501 - 1.000
-    PriceRange.create!(volume_start: '0.501', volume_end: '1.000', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '0.501', volume_end: '1.000', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '0.501', volume_end: '1.000', weight_start: '30.000', weight_end: '9999.000')
-    # 1.001 - 1.500
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '30.000', weight_end: '9999.000')
-    # 1.501 - 2.000
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '30.000', weight_end: '9999.000')
+    price_range = PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '0.000', weight_end: '10.000')
+    DistancePrice.create!(km_price: 1.0, price_range_id: price_range.id, carrier_id: carrier.id)
 
-    # DistancePrice - AplhaTransportes - # 0.001 - 0.500
-    DistancePrice.create!(km_price: 0.5, price_range_id: 1, carrier_id: 1)
-    DistancePrice.create!(km_price: 0.8, price_range_id: 2, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.0, price_range_id: 3, carrier_id: 1)
-    # DistancePrice - AplhaTransportes - # 0.501 - 1.000
-    DistancePrice.create!(km_price: 0.75, price_range_id: 4, carrier_id: 1)
-    DistancePrice.create!(km_price: 0.90, price_range_id: 5, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.05, price_range_id: 6, carrier_id: 1)
-    # DistancePrice - AplhaTransportes - # 1.001 - 1.500
-    DistancePrice.create!(km_price: 0.95, price_range_id: 7, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.10, price_range_id: 8, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.25, price_range_id: 9, carrier_id: 1)
-    # DistancePrice - AplhaTransportes - # 1.501 - 2.000
-    DistancePrice.create!(km_price: 1.05, price_range_id: 10, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.30, price_range_id: 11, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.50, price_range_id: 12, carrier_id: 1)
-
+    vehicle = Vehicle.create!(model: 'Kia Bongo', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '1')
+    
     order = Order.create!(
-      order_value: 100.20, package_volume: 1.5, package_weight: 3, distance: 100,
-      delivery_date: 1.week.from_now, carrier_id: Carrier.first.id,
-      origin_address: 'Rua das Acácias, 235, Salvador, Bahia, Brazil', destiny_address: 'Rua Borges de Barros 35, Ipiaú, Bahia, Brasil'
+      package_weight: 10, package_volume: 1.2, distance: 300,
+      carrier:, origin_address: 'Rua Borges de Barros, Ipiaú, Bahia Brasil',
+      destiny_address: 'Coreto da Praça, Mucugê, Bahia, Brasil',
+      order_value: '61.78', delivery_date: 3.days.from_now
     )
 
     log1 = TrackingLog.create!(order_id: order.id, when: Time.now, what: 'Ordem criada.',
@@ -177,58 +112,24 @@ describe 'Usuario busca por um pedido' do
   end
 
   it 'e ainda não há histórico de atualizações do pedido' do
+    admin = Admin.create!(name: 'Manoel de Barros', email: 'manoel@sistemadefrete.com.br', password: '123456')
+    
     carrier = Carrier.create!(
       brand_name: 'Alpha Transportes', corporate_name: 'Alta Transportes LTDA',
       email_domain: 'alphatransportes.com.br', taxpayer_number: '38554111000112',
       status: 'active'
     )
 
-    distance1 = DeliveryDistance.create!(from_km: '0', to_km: '100')
-    distance2 = DeliveryDistance.create!(from_km: '101', to_km: '200')
-    distance3 = DeliveryDistance.create!(from_km: '201', to_km: '300')
-    distance4 = DeliveryDistance.create!(from_km: '301', to_km: '400')
-    distance5 = DeliveryDistance.create!(from_km: '401', to_km: '500')
+    user = User.create!(name: 'Jota Lima', email: 'jotalima@alphatransportes.com.br', password: '123456')
 
-    DeliveryTime.create!(delivery_distance_id: distance1.id, carrier_id: carrier.id, time: 1)
-    DeliveryTime.create!(delivery_distance_id: distance2.id, carrier_id: carrier.id, time: 2)
-    DeliveryTime.create!(delivery_distance_id: distance3.id, carrier_id: carrier.id, time: 3)
-    DeliveryTime.create!(delivery_distance_id: distance4.id, carrier_id: carrier.id, time: 4)
-    DeliveryTime.create!(delivery_distance_id: distance5.id, carrier_id: carrier.id, time: 5)
+    distance = DeliveryDistance.create!(from_km: 0, to_km: 100)
+    DeliveryTime.create!(delivery_distance_id: distance.id, carrier_id: carrier.id, time: 3)
 
-    # 0.001 - 0.500
-    PriceRange.create!(volume_start: '0.001', volume_end: '0.500', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '0.001', volume_end: '0.500', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '0.001', volume_end: '0.500', weight_start: '30.000', weight_end: '9999.000')
-    # 0.501 - 1.000
-    PriceRange.create!(volume_start: '0.501', volume_end: '1.000', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '0.501', volume_end: '1.000', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '0.501', volume_end: '1.000', weight_start: '30.000', weight_end: '9999.000')
-    # 1.001 - 1.500
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '30.000', weight_end: '9999.000')
-    # 1.501 - 2.000
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '0.000', weight_end: '10.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '10.000', weight_end: '30.000')
-    PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '30.000', weight_end: '9999.000')
+    price_range = PriceRange.create!(volume_start: '1.001', volume_end: '1.500', weight_start: '0.000', weight_end: '10.000')
+    DistancePrice.create!(km_price: 1.0, price_range_id: price_range.id, carrier_id: carrier.id)
 
-    # DistancePrice - AplhaTransportes - # 0.001 - 0.500
-    DistancePrice.create!(km_price: 0.5, price_range_id: 1, carrier_id: 1)
-    DistancePrice.create!(km_price: 0.8, price_range_id: 2, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.0, price_range_id: 3, carrier_id: 1)
-    # DistancePrice - AplhaTransportes - # 0.501 - 1.000
-    DistancePrice.create!(km_price: 0.75, price_range_id: 4, carrier_id: 1)
-    DistancePrice.create!(km_price: 0.90, price_range_id: 5, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.05, price_range_id: 6, carrier_id: 1)
-    # DistancePrice - AplhaTransportes - # 1.001 - 1.500
-    DistancePrice.create!(km_price: 0.95, price_range_id: 7, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.10, price_range_id: 8, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.25, price_range_id: 9, carrier_id: 1)
-    # DistancePrice - AplhaTransportes - # 1.501 - 2.000
-    DistancePrice.create!(km_price: 1.05, price_range_id: 10, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.30, price_range_id: 11, carrier_id: 1)
-    DistancePrice.create!(km_price: 1.50, price_range_id: 12, carrier_id: 1)
-
+    vehicle = Vehicle.create!(model: 'Kia Bongo', brand: 'Kia', license_plate: 'QTY9I82', year: '2022', carrier_id: '1')
+    
     order = Order.create!(
       order_value: 100.20, package_volume: 1.5, package_weight: 3, distance: 100,
       delivery_date: 1.week.from_now, carrier_id: Carrier.first.id,
