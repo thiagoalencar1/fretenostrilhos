@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :carriers, only: %i[index show new create edit update]
-    resources :price_ranges, only: %i[index show new create edit update]
+    resources :price_ranges, only: %i[index new create edit update]
     resources :delivery_distances, only: %i[index new create edit update]
   end
 

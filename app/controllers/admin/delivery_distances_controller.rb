@@ -26,7 +26,7 @@ class Admin::DeliveryDistancesController < ApplicationController
   def update
     @delivery_distance.update(params.require(:delivery_distance).permit(:from_km, :to_km))
     if @delivery_distance.save
-      redirect_to admin_delivery_distances_path, notice: 'Intervalo de Distância salvo com sucesso.'
+      redirect_to admin_delivery_distances_path, notice: 'Intervalo de Distância atualizado com sucesso.'
     else
       flash.now[:alert] = 'Verifique os valores inseridos'
       render :edit

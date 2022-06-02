@@ -1,0 +1,36 @@
+<%= form_with model: [:admin, @price_range] do |pr| %>
+  <% if @price_range.errors.any? %>
+  <div style="color: rgb(255,0,0)">
+    <p>Verifique os erros abaixo: </p>
+    <ul>
+    <% @price_range.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= pr.label :volume_start, 'Volume mínimo:' %>
+    <%= pr.number_field :volume_start, step: :any %> m³
+  </div>
+
+  <div>
+    <%= pr.label :volume_end, 'Volume máximo:' %>
+    <%= pr.number_field :volume_end, step: :any %> m³
+  </div>
+
+  <div>
+    <%= pr.label :weight_start, 'Peso mínimo:' %>
+    <%= pr.number_field :weight_start, step: :any %> kg
+  </div>
+
+  <div>
+    <%= pr.label :weight_end, 'Peso máximo:' %>
+    <%= pr.number_field :weight_end, step: :any %> kg
+  </div>
+
+  <div>
+    <%= pr.submit 'Salvar' %>
+  </div>
+<% end %>
