@@ -1,0 +1,31 @@
+
+<%= form_with  model: [:admin, @delivery_distance] do |dd| %>
+
+<% if @delivery_distance.errors.any? %>
+<div style="color: rgb(255,0,0)">
+  <p>Verifique os erros abaixo: </p>
+  <ul>
+  <% @delivery_distance.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+  </div>
+<% end %>
+
+  <div>
+    <%= dd.label :from_km, 'De: ' %>
+    <%= dd.number_field :from_km, step: :any %> km
+  </div>
+
+  <div>
+    <%= dd.label :to_km, 'Até: ' %>
+    <%= dd.number_field :to_km, step: :any %> km
+  </div>
+
+  <div>
+    <%= dd.submit 'Salvar' %>
+  </div>
+
+<% end %>
+
+<%= link_to 'Voltar', admin_delivery_distances_path, class: 'btn btn-primary' %>

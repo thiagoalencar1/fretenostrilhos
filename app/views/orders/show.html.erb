@@ -1,6 +1,6 @@
 <h1 class="text-center">Detalhes do Pedido</h1>
 <h2 class="text-center"><%= @order.order_number %></h2>
-  <%= link_to 'Voltar', orders_path, class: 'btn btn-primary' %>
+<%= link_to 'Voltar', orders_path, class: 'btn btn-primary' %>
 <dl>
   <dt>Data de Entrega:</dt>
   <dd><%= @order.delivery_date %></dd>
@@ -43,7 +43,6 @@
     <%= button_to 'Marcar como Entregue', delivered_order_path(@order.id), class: 'btn btn-outline-success'  %>
   </td>
 </tr>
-<table>
 <%= link_to 'Voltar', orders_path, class: 'btn btn-secondary', style: '--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;' %>
 <hr />
 <h2 class="text-center">Histórico do Pedido</h2>

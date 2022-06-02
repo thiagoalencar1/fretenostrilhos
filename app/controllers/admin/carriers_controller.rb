@@ -19,7 +19,7 @@ class Admin::CarriersController < ApplicationController
     if @carrier.save
       redirect_to [:admin, @carrier], notice: 'Transportadora salva com sucesso.'
     else
-      flash[:alert] = 'Verifique o preenchimento do cadastro.'
+      flash.now[:alert] = 'Verifique o preenchimento do cadastro.'
       render :new
     end
   end

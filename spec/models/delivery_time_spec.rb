@@ -12,7 +12,7 @@ RSpec.describe DeliveryTime, type: :model do
 
       user = User.create!(name: 'Juliano Costa', email: 'juliano@expressomercurio.com.br', password: 'chuchubeleza')
 
-      distance1 = DeliveryDistance.create!(from_km: '0', to_km: '100')
+      distance1 = DeliveryDistance.create!(from_km: '1', to_km: '100')
       distance2 = DeliveryDistance.create!(from_km: '101', to_km: '200')
 
       # Act

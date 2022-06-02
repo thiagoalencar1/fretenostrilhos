@@ -1,6 +1,10 @@
 <h1 class="text-center">Intervalos de Distância</h1>
 <h2 class="text-center">para cadastro de prazos</h2>
 <br />
+<div class="text-center">
+  <%= link_to 'Novo Intervalo de Distância', new_admin_delivery_distance_path, class: 'btn btn-primary', style: '--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;' %>
+</div>
+<br />
 <table class="table text-center align-middle m-auto" style="max-width: 700px">
   <thead>
     <tr>
@@ -11,12 +15,14 @@
     </th>
   </thead>
   <tbody>
+    <% count = 1 %>
     <% @delivery_distances.each do |dd| %>
     <tr>
-      <td><%= dd.id %></td>
+      <td><%= count %></td>
       <td><%= dd.from_km %>km</td>
       <td><%= dd.to_km %>km</td>
       <td><%= link_to 'Editar', edit_admin_delivery_distance_path(dd), class: 'btn btn-outline-warning' %></td>
+      <% count += 1 %>
     <% end %>
   </tbody>
 </table>
