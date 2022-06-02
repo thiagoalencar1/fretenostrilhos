@@ -45,5 +45,5 @@ Projeto realizado durante o TreinaDev 8 com o a finalidade de consolidar o apren
 ## :paperclip: Aprendizagens
 - É necessário equilibrar prazos, expectativas e habilidade técnica.
 - Não pule o fluxo de TDD achando que vai ser mais rápido desenvolvendo alguma feature. Você se arrependerá amargamente durante o debug.
-- Cuidado com o preciosismo (_golum, golum_). Ele pode te fazer perder muito tempo com coisas desnecessárias.
+- Cuidado com o preciosismo. Ele pode te fazer perder muito tempo com coisas desnecessárias.
 - Make it Work, Right and Fast. Gerar valor em um padrão mínimo de qualidade e em uma estrutua que permita a evolução, depois melhorar a estrutura (obs: não é go horse).   
