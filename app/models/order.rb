@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   before_validation :generate_order_number, on: :create
 
   enum status: { pending: 0, accepted: 3, delivered: 6, rejected: 9 }
+  
   validate :check_date
   validates :package_weight, :package_volume, :distance, :origin_address, :destiny_address, :order_value,
             :delivery_date, presence: true

@@ -75,7 +75,7 @@ class OrdersController < ApplicationController
   def accepted
     @order = Order.find(params[:id])
     @order.update(status: :accepted)
-    redirect_to @order, notice: 'Pedido aceito com sucesso.'
+    redirect_to @order, notice: 'Pedido aceito.'
   end
 
   def rejected

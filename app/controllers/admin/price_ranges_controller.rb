@@ -2,7 +2,7 @@ class Admin::PriceRangesController < ApplicationController
   before_action :set_price_range, only: [:edit, :update]
 
   def index
-    @price_ranges = PriceRange.all
+    @price_ranges = PriceRange.order(:volume_start)
   end
 
   def new
