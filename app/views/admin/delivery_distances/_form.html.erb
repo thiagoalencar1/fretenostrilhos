@@ -13,12 +13,12 @@
 <% end %>
 
   <div>
-    <%= dd.label :from_km, 'De: ' %>
+    <%= dd.label :from_km %>
     <%= dd.number_field :from_km, step: :any %> km
   </div>
 
   <div>
-    <%= dd.label :to_km, 'Até: ' %>
+    <%= dd.label :to_km %>
     <%= dd.number_field :to_km, step: :any %> km
   </div>
 
@@ -28,4 +28,8 @@
 
 <% end %>
 
-<%= link_to 'Voltar', admin_delivery_distances_path, class: 'btn btn-primary' %>
+<br /><br />
+
+<div class="text-center">
+  <%= link_to 'Voltar', admin_delivery_distances_path, class: 'btn btn-primary' %>
+</div>

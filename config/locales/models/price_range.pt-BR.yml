@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      price_range: "Intevalo de Medidas"
+    attributes:
+      price_range:
+        volume_start: "Volume mínimo"
+        volume_end: "Volume máximo"
+        weight_start: "Peso mínimo"
+        weight_end: "Peso máximo"

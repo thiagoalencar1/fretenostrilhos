@@ -2,7 +2,7 @@
 <%= @price_range.show_price_range %> <br />
 <%= form_with model: [:user, @distance_price] do |c| %>
   <div>
-    <%= c.label :km_price, 'Preço / Km' %>
+    <%= c.label :km_price %>
     <%= c.number_field :km_price%>
   </div>
 
@@ -14,3 +14,7 @@
   </div>
 
 <% end  %>
+
+<div class="text-center">
+  <%= link_to 'Voltar', user_distance_prices_path, class: 'btn btn-primary' %>
+</div>

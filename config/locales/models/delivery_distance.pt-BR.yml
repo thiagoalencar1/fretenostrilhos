@@ -1,0 +1,8 @@
+pt-BR:
+  activerecord:
+    models:
+      delivery_distance: "Intevalo de Distância"
+    attributes:
+      delivery_distance:
+        from_km: "Quilômetro Inicial"
+        to_km: "Quilômetro Final"

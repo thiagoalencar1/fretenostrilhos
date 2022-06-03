@@ -13,8 +13,8 @@ describe 'Admin edita Intervalo de Distância' do
     visit root_path
     click_on('Intervalos de Distância')
     first(:link, 'Editar').click
-    fill_in('De', with: '201')
-    fill_in('Até', with: '300')
+    fill_in('Quilômetro Inicial', with: '201')
+    fill_in('Quilômetro Final', with: '300')
     click_on('Salvar')
 
     # Assert

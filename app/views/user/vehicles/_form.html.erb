@@ -1,22 +1,22 @@
 <div class="m-auto" style="max-width: 700px">
 <%= form_with model: [:user, @vehicle] do |v| %>
   <div>
-    <%= v.label :model, 'Modelo' %>
+    <%= v.label :model %>
     <%= v.text_field :model %>
   </div>
   
   <div>
-    <%= v.label :brand, 'Marca' %>
+    <%= v.label :brand %>
     <%= v.text_field :brand %>
   </div>
 
   <div>
-    <%= v.label :year, 'Ano'%>
+    <%= v.label :year %>
     <%= v.number_field :year %>
   </div>
 
   <div>
-    <%= v.label :license_plate, 'Placa' %>
+    <%= v.label :license_plate %>
     <%= v.text_field :license_plate %>
   </div>
 
@@ -28,4 +28,6 @@
 
 <% end  %>
 
-<%= link_to 'Voltar', user_vehicles_path %>
+<div class="text-center">
+  <%= link_to 'Voltar', user_vehicles_path, class: 'btn btn-primary' %>
+</div>

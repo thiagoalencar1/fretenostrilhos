@@ -1,0 +1,7 @@
+pt-BR:
+  activerecord:
+    models:
+      delivery_time: "Preço por Quilômetro"
+    attributes:
+      delivery_time:
+        km_price: "Preço por Quilômetro"

@@ -3,11 +3,13 @@ pt-BR:
   inactive: "Inativa"
   activerecord:
     models:
-      carrier: "Transportadora"
+      carrier:
+        one: "Transportadora"
+        other: "Transportadoras"
     attributes:
       carrier:
         brand_name: "Nome Fantasia"
         corporate_name: "Razão Social"
         email_domain: "Domínio"
         taxpayer_number: "CNPJ"
-        minimum_price: "Taxa Mínima de Frete"
+        minimum_price: "Valor mínimo de frete"

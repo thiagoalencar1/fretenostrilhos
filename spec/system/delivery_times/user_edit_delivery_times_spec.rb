@@ -23,7 +23,7 @@ describe 'Usuário visita página de intervalos de distância' do
 
     # Assert
     expect(page).to have_content('Entre 0 km — 100 km')
-    fill_in 'Tempo estimado', with: '1'
+    fill_in 'Prazo estimado', with: '1'
     click_on('Salvar')
     expect(page).to have_content('Estimativa de entrega atualizada com sucesso.')
   end

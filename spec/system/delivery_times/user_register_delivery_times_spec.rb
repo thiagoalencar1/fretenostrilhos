@@ -22,7 +22,7 @@ describe 'Usuário visita página de intervalos de distância' do
 
     # Assert
     expect(page).to have_content('Entre 0 km — 100 km')
-    fill_in 'Tempo estimado', with: '1'
+    fill_in 'Prazo estimado', with: '1'
     click_on('Salvar')
     expect(current_path).to eq(user_delivery_times_path)
     expect(page).to have_content('Estimativa de entrega cadastrada com sucesso.')

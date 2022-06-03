@@ -11,22 +11,22 @@
   <% end %>
 
   <div>
-    <%= pr.label :volume_start, 'Volume mínimo:' %>
+    <%= pr.label :volume_start %>
     <%= pr.number_field :volume_start, step: :any %> m³
   </div>
 
   <div>
-    <%= pr.label :volume_end, 'Volume máximo:' %>
+    <%= pr.label :volume_end %>
     <%= pr.number_field :volume_end, step: :any %> m³
   </div>
 
   <div>
-    <%= pr.label :weight_start, 'Peso mínimo:' %>
+    <%= pr.label :weight_start %>
     <%= pr.number_field :weight_start, step: :any %> kg
   </div>
 
   <div>
-    <%= pr.label :weight_end, 'Peso máximo:' %>
+    <%= pr.label :weight_end %>
     <%= pr.number_field :weight_end, step: :any %> kg
   </div>
 
@@ -34,3 +34,9 @@
     <%= pr.submit 'Salvar' %>
   </div>
 <% end %>
+
+<br /><br />
+
+<div class="text-center">
+  <%= link_to 'Voltar', admin_delivery_distances_path, class: 'btn btn-primary' %>
+</div>

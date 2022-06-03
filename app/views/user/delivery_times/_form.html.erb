@@ -2,7 +2,7 @@
 <%= @delivery_distance.show_delivery_distance %>
 <%= form_with model: [:user, @delivery_time] do |d| %>
   <div>
-    <%= d.label :time, 'Tempo estimado: ' %>
+    <%= d.label :time %>
     <%= d.number_field :time, in: 1..99 %> dias
   </div>
 
@@ -13,3 +13,7 @@
     <%= d.submit 'Salvar' %>
   </div>
 <% end %>
+
+<div class="text-center">
+  <%= link_to 'Voltar', user_delivery_times_path, class: 'btn btn-primary' %>
+</div>
