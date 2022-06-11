@@ -32,3 +32,4 @@
 /coverage/*
 /.simplecov.rb
 /.byebug_history
+.byebug_history

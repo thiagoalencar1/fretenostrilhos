@@ -1,4 +1,6 @@
-<h2 class="h3 mb-3 fw-normal" style="text-align:center; margin-top: 50px;"><%= request.path == new_admin_session_path ? 'Log in Admin' : 'Log in Transportadora'  %></h2>
+<h2 class="h3 mb-3 fw-normal" style="text-align:center; margin-top: 50px;">
+  <%= request.path == new_admin_session_path ? 'Log in Admin' : 'Log in Transportadora'  %>
+</h2>
 
 <main class="form-signin w-100 m-auto" style="max-width: 270px;">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
