@@ -32,6 +32,7 @@ group :development, :test do
   gem "rubocop-rails"
   gem "rubocop-performance"
   gem "rubocop-rspec"
+  gem "factory_bot_rails"
   gem "shoulda-matchers", "~> 5.1"
 end
 
